@@ -12,9 +12,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1792519298.995065,
-    "seen": 1792519302.3197777,
-    "ast_hash": "85fdc64b1d97501638524203095c5534",
+    "mtime": 1792519436.1487877,
+    "seen": 1792519436.6507595,
+    "ast_hash": "c58f0e077849d8a2eeb443bfca1f7910",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -30,9 +30,9 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1792519298.9948702,
-    "seen": 1792519302.3197806,
-    "ast_hash": "e48dd2459625a49c162f6f3797785b9e",
+    "mtime": 1792519436.1485887,
+    "seen": 1792519436.6507623,
+    "ast_hash": "8b26ac82ecc4f4e897b7ded2a02ea2fb",
     "semantic_hash": ""
   },
   "docs/freeze-analysis.md": {
@@ -60,9 +60,9 @@
     "semantic_hash": ""
   },
   "src/main.cpp": {
-    "mtime": 1792519272.068411,
-    "seen": 1792519302.3197727,
-    "ast_hash": "45828d9f6fb7303fd226e69a8951014e",
+    "mtime": 1792519419.6768343,
+    "seen": 1792519436.6507533,
+    "ast_hash": "74bc3aa8ce770fc94549811406a62d04",
     "semantic_hash": ""
   },
   "test/test_smoke/test_smoke.cpp": {
@@ -159,6 +159,36 @@
     "mtime": 1792519216.1262414,
     "seen": 1792519302.3197768,
     "ast_hash": "0141e3a34ee32fcba4fd86fe26ead56b",
+    "semantic_hash": ""
+  },
+  "include/core/FloorThermostat.h": {
+    "mtime": 1792519388.5228462,
+    "seen": 1792519436.6507401,
+    "ast_hash": "e265041108a8fe983656d28aea8fa0de",
+    "semantic_hash": ""
+  },
+  "include/hal/ArduinoRelay.h": {
+    "mtime": 1792519409.8512921,
+    "seen": 1792519436.650745,
+    "ast_hash": "5557923df7f8deecdd6dc2e1d97694eb",
+    "semantic_hash": ""
+  },
+  "src/core/FloorThermostat.cpp": {
+    "mtime": 1792519388.5258462,
+    "seen": 1792519436.6507473,
+    "ast_hash": "569ed8d366603264a984488b4ee93bc1",
+    "semantic_hash": ""
+  },
+  "src/hal/ArduinoRelay.cpp": {
+    "mtime": 1792519409.855292,
+    "seen": 1792519436.650751,
+    "ast_hash": "c045e4006d47cffcf4ce788ab67878be",
+    "semantic_hash": ""
+  },
+  "test/test_floor/test_floor.cpp": {
+    "mtime": 1792519392.4489305,
+    "seen": 1792519436.6507552,
+    "ast_hash": "b8c8a98ce7c5f24aaea3540f7eae41e4",
     "semantic_hash": ""
   }
 }
