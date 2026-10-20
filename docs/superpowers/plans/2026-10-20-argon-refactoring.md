@@ -10,6 +10,8 @@
 
 **Spec:** `PRD.md` (§1–6), `docs/freeze-analysis.md` (§1–9).
 
+> **Статус:** план выполнен; прошивка испытана на железе 2026-10-20, замечаний нет. Проект заморожен.
+
 ## Global Constraints
 
 - MCU: Wemos D1 Mini (ESP8266), платформа `espressif8266`, Arduino framework.

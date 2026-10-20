@@ -2,7 +2,7 @@
 
 Прошивка контроллера «умного коридора»: LED-подсветка с плавным розжигом, тёплый пол с термостатом, датчики движения, температуры и влажности, управление и телеметрия по MQTT для Home Assistant и Node-RED.
 
-> **Статус: рефакторинг Argon завершён (код).** Все модули собраны, MQTT и телеметрия подключены; 40 native-тестов зелёные. Прошивка ещё не проверялась на реальном устройстве — перед эксплуатацией пройдите чек-лист из [плана](docs/superpowers/plans/2026-10-20-argon-refactoring.md), блок 5.
+> **Статус: рефакторинг Argon завершён и испытан на железе 2026-10-20.** Все модули собраны, MQTT и телеметрия подключены; 40 native-тестов зелёные, проверка на устройстве прошла без замечаний. Проект заморожен до следующих правок; снимок состояния — тег `argon-2026-10-20`.
 
 ## Возможности
 
@@ -176,6 +176,12 @@ flowchart TD
 | Телеметрия | 10 с |
 | Watchdog связи | 5 мин → `ESP.restart()` |
 
+## Home Assistant
+
+Готовый пакет MQTT — [`docs/hall.yaml`](docs/hall.yaml). Датчики температуры/влажности и `climate` читают JSON-телеметрию `home/hall/state` (`air_temp`, `air_hum`, `floor_temp`); отдельных топиков температур прошивка не публикует. Команда уставки пола — `home/hall/floor/targetTemp` (camelCase).
+
+Пакет подключается как обычный HA package (`homeassistant/packages/hall.yaml`) и требует перезагрузки Home Assistant.
+
 ## Сборка и прошивка
 
 **Требования:** [PlatformIO Core](https://docs.platformio.org/en/latest/core/installation/) (CLI) или VS Code с расширением PlatformIO IDE; драйвер USB-UART (CH340/CP210x).
@@ -194,7 +200,7 @@ pio device monitor       # Serial 115200
 
 Полный цикл с монитором: `pio run -t upload -t monitor`.
 
-> Прошивка собрана полностью: датчики, свет, тёплый пол, MQTT и телеметрия. Легаси-файл остаётся эталоном поведения и в сборке не участвует; перед эксплуатацией нужна проверка на железе.
+> Прошивка собрана полностью: датчики, свет, тёплый пол, MQTT и телеметрия. Легаси-файл остаётся эталоном поведения и в сборке не участвует. Результат испытаний — в [отчёте](docs/hardware-test-report.md); при изменениях повторите чек-лист.
 
 ### Тесты
 
@@ -225,7 +231,11 @@ Wi-Fi и MQTT-учётные данные в код не коммитятся. �
 ├── CLAUDE.md          # обёртка Claude Code → AGENTS.md
 ├── platformio.ini     # env d1_mini + native, зависимости
 ├── docs/
-│   └── main.cpp       # легаси-монолит — эталон поведения
+│   ├── main.cpp       # легаси-монолит — эталон поведения
+│   ├── hall.yaml      # MQTT-пакет Home Assistant
+│   ├── hardware-test-report.md
+│   ├── freeze-analysis.md
+│   └── superpowers/   # план рефакторинга
 ├── src/
 │   ├── main.cpp       # сборка модулей и loop
 │   ├── NetworkManager.cpp
@@ -256,7 +266,7 @@ Wi-Fi и MQTT-учётные данные в код не коммитятся. �
 
 Если вы работаете в Claude Code — начните с [`CLAUDE.md`](CLAUDE.md): он импортирует [`AGENTS.md`](AGENTS.md). Порядок чтения: README → AGENTS → PRD → [`docs/freeze-analysis.md`](docs/freeze-analysis.md) → [план](docs/superpowers/plans/2026-10-20-argon-refactoring.md) → [`graphify-out/GRAPH_REPORT.md`](graphify-out/GRAPH_REPORT.md).
 
-Рефакторинг Argon завершён, код в `main`; 40 native-тестов. На железе прошивка ещё не проверялась, поэтому не выдавайте сборку за подтверждённое поведение. Секреты — только в локальном `include/Secrets.h`.
+Рефакторинг Argon завершён, код в `main`; 40 native-тестов, прошивка испытана на железе 2026-10-20 (замечаний нет). Проект заморожен. Секреты — только в локальном `include/Secrets.h`.
 
 ## Документация
 
@@ -264,6 +274,8 @@ Wi-Fi и MQTT-учётные данные в код не коммитятся. �
 - [`AGENTS.md`](AGENTS.md) — правила для AI-агентов, инварианты, workflow.
 - [`CLAUDE.md`](CLAUDE.md) — входная точка для Claude Code.
 - [`docs/main.cpp`](docs/main.cpp) — текущая рабочая прошивка (легаси).
+- [`docs/hall.yaml`](docs/hall.yaml) — пакет Home Assistant.
+- [`docs/hardware-test-report.md`](docs/hardware-test-report.md) — результаты испытаний на железе.
 - [`docs/freeze-analysis.md`](docs/freeze-analysis.md) — разбор причин зависаний анимации на 1–2 с.
 - [`docs/superpowers/plans/2026-10-20-argon-refactoring.md`](docs/superpowers/plans/2026-10-20-argon-refactoring.md) — план реализации рефакторинга.
 - [`graphify-out/GRAPH_REPORT.md`](graphify-out/GRAPH_REPORT.md) — архитектурный граф проекта (graphify).

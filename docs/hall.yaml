@@ -1,0 +1,138 @@
+# ============================================================
+# ПАКЕТ: КОРИДОР (контроллер ESP8266-SmartHall)
+# Свет, тёплый пол, климат-датчики, датчик движения.
+#
+# Датчики читают JSON-телеметрию home/hall/state (каждые 10 с):
+# air_temp, air_hum, floor_temp. Отдельных топиков температур
+# прошивка не публикует — это осознанное решение (см. README).
+# ============================================================
+
+mqtt:
+
+  # ---------- ОСВЕЩЕНИЕ ----------
+  light:
+    # --- Основная лента ---
+    - name: "Свет Коридор"
+      unique_id: hall_light_light
+      state_topic: "home/hall/light/light_state"
+      command_topic: "home/hall/light/light"
+      brightness_state_topic: "home/hall/light/brightness_state"
+      brightness_command_topic: "home/hall/light/brightness"
+      brightness_scale: 100
+      payload_on: "ON"
+      payload_off: "OFF"
+      device: &hall_device
+        identifiers: "hallway_esp8266_node"
+        name: "Контроллер Коридора"
+        model: "ESP8266-SmartHall"
+        suggested_area: "hallway"
+        manufacturer: "DIY-Vega"
+
+  # ---------- ВЫКЛЮЧАТЕЛИ ----------
+  switch:
+    # --- Реакция СВЕТА на движение ---
+    - name: "Свет: Автоматика движения"
+      unique_id: hall_motion_light
+      state_topic: "home/hall/light/moveDetection_state"
+      command_topic: "home/hall/light/moveDetection"
+      payload_on: "ON"
+      payload_off: "OFF"
+      icon: "mdi:motion-sensor"
+      device: *hall_device
+
+    # --- Реакция ПОЛА на движение ---
+    - name: "Пол: Автоматика движения"
+      unique_id: hall_motion_floor
+      state_topic: "home/hall/floor/moveDetection_state"
+      command_topic: "home/hall/floor/moveDetection"
+      payload_on: "ON"
+      payload_off: "OFF"
+      icon: "mdi:motion-sensor-off"
+      device: *hall_device
+
+  # ---------- ДАТЧИКИ ----------
+  sensor:
+    - name: "Температура Коридор"
+      unique_id: hall_temp_entity
+      state_topic: "home/hall/state"
+      value_template: "{{ value_json.air_temp }}"
+      device_class: temperature
+      unit_of_measurement: "°C"
+      state_class: measurement
+      device: *hall_device
+
+    - name: "Влажность Коридор"
+      unique_id: hall_hum_entity
+      state_topic: "home/hall/state"
+      value_template: "{{ value_json.air_hum }}"
+      device_class: humidity
+      unit_of_measurement: "%"
+      state_class: measurement
+      device: *hall_device
+
+    - name: "Температура пола"
+      unique_id: hall_floor_temp_sensor
+      state_topic: "home/hall/state"
+      value_template: "{{ value_json.floor_temp }}"
+      device_class: temperature
+      unit_of_measurement: "°C"
+      state_class: measurement
+      device: *hall_device
+
+  # ---------- ТЕРМОСТАТ (ТЁПЛЫЙ ПОЛ) ----------
+  climate:
+    - name: "Теплый пол"
+      unique_id: hall_floor_heat_climate
+
+      # Питание (Вкл/Выкл) — используется сервисами climate.turn_on/turn_off
+      power_command_topic: "home/hall/floor/floor"
+      payload_on: "ON"
+      payload_off: "OFF"
+
+      # Режим: управление из UI идёт ТОЛЬКО через mode_command_topic
+      # (power_command_topic с HA 2023.7 при смене режима не публикует).
+      # heat→ON, off→OFF в тот же топик питания.
+      mode_command_topic: "home/hall/floor/floor"
+      mode_command_template: "{% if value == 'heat' %}ON{% else %}OFF{% endif %}"
+      mode_state_topic: "home/hall/floor/floor_state"
+      mode_state_template: "{% if value == 'ON' %}heat{% else %}off{% endif %}"
+      modes:
+        - "off"
+        - "heat"
+
+      # --- ЦЕЛЕВАЯ ТЕМПЕРАТУРА (Регулятор) ---
+      # Куда отправляем команду (когда крутим ручку)
+      temperature_command_topic: "home/hall/floor/targetTemp"
+      # temperature_state_topic НЕ задаём: прошивка уставку не публикует,
+      # а с заданным state-топиком HA держит уставку None (initial игнорируется)
+      # и ползунок не появляется. Без него уставка оптимистичная.
+      # После рестарта HA уставка на карточке сбрасывается к initial.
+
+      # Начальная уставка (применяется только в оптимистичном режиме)
+      initial: 30
+
+      # Текущая температура пола (маленькие цифры внизу) — из JSON-телеметрии.
+      current_temperature_topic: "home/hall/state"
+      current_temperature_template: "{{ value_json.floor_temp }}"
+
+      # Статус нагрева (Обогрев/Бездействие)
+      action_topic: "home/hall/floor/floor_heat_state"
+      action_template: "{% if value == 'ON' %}heating{% else %}idle{% endif %}"
+
+      min_temp: 25
+      max_temp: 35
+      temp_step: 1
+      precision: 0.1
+
+      device: *hall_device
+
+  # ---------- БИНАРНЫЕ ДАТЧИКИ ----------
+  binary_sensor:
+    # --- Физическое состояние датчика движения (raw_pir) ---
+    - name: "Движение в коридоре (физическое)"
+      unique_id: hall_pir_raw
+      state_topic: "home/hall/light/move"
+      payload_on: "ON"
+      payload_off: "OFF"
+      device_class: motion
+      device: *hall_device

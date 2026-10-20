@@ -12,15 +12,15 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1792523353.4345794,
-    "seen": 1792523381.1819673,
-    "ast_hash": "6c281e0942240c69396eb1648be56751",
+    "mtime": 1792524426.7720816,
+    "seen": 1792524438.215541,
+    "ast_hash": "7be84a286a383cd3d33d424e91339c46",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1792521785.7790637,
-    "seen": 1792521799.153565,
-    "ast_hash": "4a971e0fe45fe9a1c76e6e9f8caf1d36",
+    "mtime": 1792524426.7722535,
+    "seen": 1792524438.2155454,
+    "ast_hash": "18217a1afb7b015633c040919ddf003d",
     "semantic_hash": ""
   },
   "PRD.md": {
@@ -30,21 +30,21 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1792523353.434288,
-    "seen": 1792523381.1819713,
-    "ast_hash": "9e5775d0ec5170814e709fd2c19159b2",
+    "mtime": 1792524426.7717125,
+    "seen": 1792524438.2155519,
+    "ast_hash": "9a9b436f368ba1088696a30c62b3e09e",
     "semantic_hash": ""
   },
   "docs/freeze-analysis.md": {
-    "mtime": 1792523393.071249,
-    "seen": 1792523412.9683702,
-    "ast_hash": "1ea5bd5e8d5b0d1fcc5400abfee7d363",
+    "mtime": 1792524420.222664,
+    "seen": 1792524438.2155547,
+    "ast_hash": "140515b6ae6021a8e122f4bc8c319116",
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-10-20-argon-refactoring.md": {
-    "mtime": 1792523393.0716617,
-    "seen": 1792523412.9683728,
-    "ast_hash": "65b501a1ddf3c477bac77f99c0cb72e4",
+    "mtime": 1792524420.2230186,
+    "seen": 1792524438.2155633,
+    "ast_hash": "d528fae496f476344aeaf3c6e931c9e9",
     "semantic_hash": ""
   },
   "include/Config.h": {
@@ -225,6 +225,18 @@
     "mtime": 1792523320.1621807,
     "seen": 1792523381.181938,
     "ast_hash": "61d52f49e23827b7d5246b1df33d34e1",
+    "semantic_hash": ""
+  },
+  "docs/hall.yaml": {
+    "mtime": 1792524390.382697,
+    "seen": 1792524438.2155578,
+    "ast_hash": "13cb2f7349a65f730dd4d5d0bf0eed32",
+    "semantic_hash": ""
+  },
+  "docs/hardware-test-report.md": {
+    "mtime": 1792524404.7060502,
+    "seen": 1792524438.2155604,
+    "ast_hash": "911ae07b525eddbdba71e93b20bf5ce8",
     "semantic_hash": ""
   }
 }
