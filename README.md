@@ -176,3 +176,4 @@ Wi-Fi и MQTT-учётные данные в код не коммитятся. �
 - [`AGENTS.md`](AGENTS.md) — правила для AI-агентов, инварианты, workflow.
 - [`CLAUDE.md`](CLAUDE.md) — входная точка для Claude Code.
 - [`docs/main.cpp`](docs/main.cpp) — текущая рабочая прошивка (легаси).
+- [`docs/freeze-analysis.md`](docs/freeze-analysis.md) — разбор причин зависаний анимации на 1–2 с.
