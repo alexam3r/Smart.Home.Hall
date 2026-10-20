@@ -6,3 +6,9 @@
 3D
 Altium.v1
 Altium.v2
+
+# Секреты (см. include/Secrets.h.example)
+include/Secrets.h
+
+# Служебные данные DeepSeek Harness
+.dsh/

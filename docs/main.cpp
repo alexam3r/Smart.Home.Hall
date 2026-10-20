@@ -10,13 +10,14 @@
 // 1. КОНФИГУРАЦИЯ И ПИНЫ
 // =================================================================================
 
-// Учетные данные Wi-Fi
-const char* ssid = "ruj1ksoit";                             
-const char* password = "seQfibyOhFnRkx098f4NfuOMEGsH46";    
+// Учетные данные Wi-Fi.
+// Реальные значения задаются в include/Secrets.h (файл в .gitignore) и в репозиторий не попадают.
+const char* ssid = "YOUR_WIFI_SSID";
+const char* password = "YOUR_WIFI_PASSWORD";
 
 // Авторизация MQTT (IP брокера определится автоматически как Gateway)
-const char* mqtt_user = "ioex";                             
-const char* mqtt_pass = "q36oGdGCVGMKQCrjTBF5CXDRg";        
+const char* mqtt_user = "YOUR_MQTT_USER";
+const char* mqtt_pass = "YOUR_MQTT_PASSWORD";
 
 // Пины Wemos D1 Mini
 #define PIN_SCL D1           // I2C SCL (датчик AM2320)
