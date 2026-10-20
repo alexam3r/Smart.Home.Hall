@@ -14,7 +14,6 @@ void test_config_constants() {
 void test_mqtt_topics() {
     TEST_ASSERT_EQUAL_STRING("home/hall/light/light", mqtt::LIGHT_CMD);
     TEST_ASSERT_EQUAL_STRING("home/hall/floor/targetTemp", mqtt::FLOOR_TARGET);
-    TEST_ASSERT_EQUAL_STRING("home/hall/floor/target_temp", mqtt::FLOOR_TARGET_LEGACY);
     TEST_ASSERT_EQUAL_STRING("home/hall/state", mqtt::TELEMETRY_STATE);
 }
 

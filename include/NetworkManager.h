@@ -45,6 +45,7 @@ private:
     PubSubClient client_;
 
     bool initialPublished_ = false;
+    float lastTargetC_ = 30.0f;
     bool attempted_ = false;
     bool lost_ = false;
     uint32_t lostAtMs_ = 0;

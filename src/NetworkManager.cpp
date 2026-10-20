@@ -125,17 +125,24 @@ void NetworkManager::handleMessage(char* topic, byte* payload, unsigned int leng
     } else if (strcmp(topic, mqtt::FLOOR_MOTION_CMD) == 0) {
         sink_.onFloorMotionMode(on);
         client_.publish(mqtt::FLOOR_MOTION_STATE, on ? "ON" : "OFF", true);
-    } else if (strcmp(topic, mqtt::FLOOR_TARGET) == 0 ||
-               strcmp(topic, mqtt::FLOOR_TARGET_LEGACY) == 0) {
+    } else if (strcmp(topic, mqtt::FLOOR_TARGET) == 0) {
         const float targetC = static_cast<float>(atof(message));
+
+        // Команда всегда применяется (в том числе сброс таймера пола).
         sink_.onFloorTargetTemp(targetC);
 
-        // Держим оба топика в синхронизации, чтобы старые HA-конфиги
-        // и новый канонический targetTemp видели одну уставку.
+        // targetTemp — одновременно команда и retained-состояние.
+        // Брокер может вернуть нашу же публикацию; публикуем только при
+        // реальном изменении, иначе получается MQTT-петля.
+        if (targetC == lastTargetC_) {
+            return;
+        }
+
         char targetPayload[16] = {0};
         snprintf(targetPayload, sizeof(targetPayload), "%.1f", targetC);
-        client_.publish(mqtt::FLOOR_TARGET, targetPayload, true);
-        client_.publish(mqtt::FLOOR_TARGET_LEGACY, targetPayload, true);
+        if (client_.publish(mqtt::FLOOR_TARGET, targetPayload, true)) {
+            lastTargetC_ = targetC;
+        }
     }
 }
 
@@ -146,7 +153,6 @@ void NetworkManager::subscribeAll() {
     client_.subscribe(mqtt::FLOOR_CMD);
     client_.subscribe(mqtt::FLOOR_MOTION_CMD);
     client_.subscribe(mqtt::FLOOR_TARGET);
-    client_.subscribe(mqtt::FLOOR_TARGET_LEGACY);
 }
 
 void NetworkManager::publishInitialStates() {
@@ -157,6 +163,6 @@ void NetworkManager::publishInitialStates() {
     client_.publish(mqtt::FLOOR_HEAT_STATE, "OFF", true);
     client_.publish(mqtt::FLOOR_MOTION_STATE, "OFF", true);
     client_.publish(mqtt::FLOOR_TARGET, "30.0", true);
-    client_.publish(mqtt::FLOOR_TARGET_LEGACY, "30.0", true);
+    lastTargetC_ = 30.0f;
     client_.publish(mqtt::LIGHT_MOVE, "OFF", false);
 }
