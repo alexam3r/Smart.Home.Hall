@@ -179,7 +179,7 @@ flowchart TD
 
 ## Home Assistant
 
-Готовый пакет MQTT — [`docs/hall.yaml`](docs/hall.yaml). Датчики температуры/влажности и `climate` читают JSON-телеметрию `home/hall/state` (`air_temp`, `air_hum`, `floor_temp`); отдельных топиков температур прошивка не публикует. Команда уставки пола — `home/hall/floor/targetTemp` (camelCase); legacy-топик `home/hall/floor/target_temp` тоже принимается.
+Готовый пакет MQTT — [`docs/hall.yaml`](docs/hall.yaml). Датчики температуры/влажности и `climate` читают JSON-телеметрию `home/hall/state` (`air_temp`, `air_hum`, `floor_temp`); отдельных топиков температур прошивка не публикует. Команда уставки пола — `home/hall/floor/targetTemp` (camelCase); legacy-топик `home/hall/floor/target_temp` тоже принимается. `climate` читает фактическую уставку из retained-топика `targetTemp`, поэтому после рестарта HA видит текущее значение контроллера.
 
 Пакет подключается как обычный HA package (`homeassistant/packages/hall.yaml`) и требует перезагрузки Home Assistant.
 
