@@ -10,9 +10,7 @@ LightController::LightController(IPwmOutput& pwm, ILightObserver& observer,
       userBrightness_(config.defaultBrightness),
       fadeStartMs_(now),
       lastStepMs_(now),
-      lastActivityMs_(now) {
-    pwm_.writeDuty(0);
-}
+      lastActivityMs_(now) {}
 
 void LightController::setPower(bool on, uint32_t now) {
     lastActivityMs_ = now;
