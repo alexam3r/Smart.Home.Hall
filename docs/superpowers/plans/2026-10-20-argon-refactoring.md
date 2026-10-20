@@ -16,7 +16,7 @@
 - Пины: D7/GPIO13 — ШИМ ленты, D8/GPIO15 — SSR пола, D5/GPIO14 — DS18B20, D6/GPIO12 — PIR, D1/GPIO5 — SCL, D2/GPIO4 — SDA. Не менять.
 - ШИМ: 4000 Гц, диапазон 0…1023, прямая логика.
 - Кривая CIE1931; переход 2 с, обновление каждые 20 мс, реверс с текущей яркости.
-- Тайминги: PIR-прогрев 10 с; свет 60 с / 3600 с; пол 3600 с / 43200 с; гистерезис ±0.5 °C; fail-safe пола 90 с; AM2320 15 с; DS18B20 30 с + 750 мс на преобразование; телеметрия 10 с; reconnect 5 с; ребут при потере связи 5 мин.
+- Тайминги: PIR-прогрев 10 с; свет 60 с / 3600 с; пол 3600 с / 43200 с; гистерезис ±0.5 °C; fail-safe пола 90 с; AM2320 15 с; DS18B20 30 с + 850 мс на преобразование; телеметрия 10 с; reconnect 5 с; ребут при потере связи 5 мин.
 - MQTT: база `home/hall`, client ID `ESP8266_Smart_Hall`, топики и retain — строго по `README.md`.
 - Порядок ключей JSON телеметрии: `light_state, light_move_state, floor_state, floor_move_state, floor_heat_state, floor_temp, air_temp, air_hum, pir_raw, since_move_s, uptime, heap`.
 - Секреты — только `include/Secrets.h` (в `.gitignore`); в репозитории — `include/Secrets.h.example`.

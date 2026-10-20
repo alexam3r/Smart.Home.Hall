@@ -26,6 +26,7 @@ struct SensorConfig {
 struct SensorSnapshot {
     bool floorValid = false;
     float floorTempC = 0.0f;
+    float floorLastReadC = 0.0f;
     uint32_t floorSampleMs = 0;
 
     bool airValid = false;

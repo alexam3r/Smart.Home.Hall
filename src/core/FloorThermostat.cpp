@@ -1,14 +1,6 @@
 #include "core/FloorThermostat.h"
 
-#include <cmath>
-
-namespace {
-
-bool isValidFloorTemp(float tempC) {
-    return !std::isnan(tempC) && tempC > -120.0f && tempC != 0.0f && tempC != 85.0f;
-}
-
-}  // namespace
+#include "core/SensorLimits.h"
 
 FloorThermostat::FloorThermostat(IRelayOutput& relay, IFloorObserver& observer,
                                  FloorConfig config, uint32_t now)
@@ -49,7 +41,7 @@ void FloorThermostat::onMotion(uint32_t now) {
 }
 
 void FloorThermostat::onSample(float floorTempC, uint32_t now) {
-    if (!isValidFloorTemp(floorTempC)) {
+    if (!argon::isValidFloorTemp(floorTempC)) {
         return;
     }
     floorTempC_ = floorTempC;
@@ -58,8 +50,14 @@ void FloorThermostat::onSample(float floorTempC, uint32_t now) {
     recomputeHeat(now);
 }
 
+void FloorThermostat::onSensorInvalid(uint32_t now) {
+    hasSample_ = false;
+    recomputeHeat(now);
+}
+
 void FloorThermostat::update(uint32_t now) {
-    if (master_ && static_cast<uint32_t>(now - lastActivityMs_) >= windowTimeoutMs()) {
+    const int32_t idle = static_cast<int32_t>(now - lastActivityMs_);
+    if (master_ && idle >= static_cast<int32_t>(windowTimeoutMs())) {
         master_ = false;
         observer_.onMasterChanged(false);
     }
@@ -69,9 +67,11 @@ void FloorThermostat::update(uint32_t now) {
 void FloorThermostat::recomputeHeat(uint32_t now) {
     bool next = heat_;
 
-    const bool windowActive = static_cast<uint32_t>(now - lastActivityMs_) < windowTimeoutMs();
+    const bool windowActive =
+        static_cast<int32_t>(now - lastActivityMs_) < static_cast<int32_t>(windowTimeoutMs());
     const bool sampleFresh =
-        hasSample_ && static_cast<uint32_t>(now - lastValidSampleMs_) < config_.staleTimeoutMs;
+        hasSample_ && static_cast<int32_t>(now - lastValidSampleMs_) <
+                          static_cast<int32_t>(config_.staleTimeoutMs);
 
     if (!master_ || !windowActive || !sampleFresh) {
         next = false;

@@ -12,9 +12,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1792521798.224655,
-    "seen": 1792521799.1535609,
-    "ast_hash": "4ecf75d12f8503db58c08e936fea2618",
+    "mtime": 1792523353.4345794,
+    "seen": 1792523381.1819673,
+    "ast_hash": "6c281e0942240c69396eb1648be56751",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -30,27 +30,27 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1792521785.7720644,
-    "seen": 1792521799.1535707,
-    "ast_hash": "9381763000f86c61758793a6544ace1d",
+    "mtime": 1792523353.434288,
+    "seen": 1792523381.1819713,
+    "ast_hash": "9e5775d0ec5170814e709fd2c19159b2",
     "semantic_hash": ""
   },
   "docs/freeze-analysis.md": {
-    "mtime": 1792521237.0279157,
-    "seen": 1792521246.046467,
-    "ast_hash": "3732e432021f5e4796ed83df2fe75755",
+    "mtime": 1792523393.071249,
+    "seen": 1792523412.9683702,
+    "ast_hash": "1ea5bd5e8d5b0d1fcc5400abfee7d363",
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-10-20-argon-refactoring.md": {
-    "mtime": 1792521237.0279157,
-    "seen": 1792521246.046469,
-    "ast_hash": "13e043d078d95611ac894c36c52b5d3b",
+    "mtime": 1792523393.0716617,
+    "seen": 1792523412.9683728,
+    "ast_hash": "65b501a1ddf3c477bac77f99c0cb72e4",
     "semantic_hash": ""
   },
   "include/Config.h": {
-    "mtime": 1792521237.028907,
-    "seen": 1792521246.0464017,
-    "ast_hash": "f0ca523ffdf772859ff53c0cc6a9c484",
+    "mtime": 1792523326.81877,
+    "seen": 1792523381.181924,
+    "ast_hash": "e56f9033dc23a12acb22c8c6555075dd",
     "semantic_hash": ""
   },
   "include/MqttTopics.h": {
@@ -60,9 +60,9 @@
     "semantic_hash": ""
   },
   "src/main.cpp": {
-    "mtime": 1792521760.4928856,
-    "seen": 1792521799.1535342,
-    "ast_hash": "d0804a16c59045752f2554607f964bc8",
+    "mtime": 1792523393.0709443,
+    "seen": 1792523412.9683416,
+    "ast_hash": "62cbb242be85cda23b2609d33cf7591c",
     "semantic_hash": ""
   },
   "test/test_smoke/test_smoke.cpp": {
@@ -72,9 +72,9 @@
     "semantic_hash": ""
   },
   "include/core/SensorManager.h": {
-    "mtime": 1792521237.030556,
-    "seen": 1792521246.046417,
-    "ast_hash": "ca63a019976344185eae1c7ae2be810c",
+    "mtime": 1792523353.4337478,
+    "seen": 1792523381.1819403,
+    "ast_hash": "9d9747537df260ef9f29fc3d0a076833",
     "semantic_hash": ""
   },
   "include/hal/ArduinoSensors.h": {
@@ -84,9 +84,9 @@
     "semantic_hash": ""
   },
   "src/core/SensorManager.cpp": {
-    "mtime": 1792521237.0312645,
-    "seen": 1792521246.04643,
-    "ast_hash": "c08e1db045b53cdd3749b571ceb57439",
+    "mtime": 1792523353.4339347,
+    "seen": 1792523381.1819525,
+    "ast_hash": "0d5ad93029bc17e2d981a07adf17242b",
     "semantic_hash": ""
   },
   "src/hal/ArduinoSensors.cpp": {
@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "test/test_sensors/test_sensors.cpp": {
-    "mtime": 1792521237.0318174,
-    "seen": 1792521246.0464528,
-    "ast_hash": "0e63b1afaac47cc6bb2f06190c7796f8",
+    "mtime": 1792523294.321403,
+    "seen": 1792523381.181962,
+    "ast_hash": "f66cffa0dd267a8bcb556e51272310b0",
     "semantic_hash": ""
   },
   "include/core/Cie1931.h": {
@@ -132,9 +132,9 @@
     "semantic_hash": ""
   },
   "src/core/LightController.cpp": {
-    "mtime": 1792521237.0312645,
-    "seen": 1792521246.046429,
-    "ast_hash": "3ce7caf81b8359d0fb6e94dbaa30d720",
+    "mtime": 1792523320.193943,
+    "seen": 1792523381.1819515,
+    "ast_hash": "8ec45de81b42e4b570ad679f3677f3fe",
     "semantic_hash": ""
   },
   "src/hal/ArduinoPwm.cpp": {
@@ -150,9 +150,9 @@
     "semantic_hash": ""
   },
   "test/test_light/test_light.cpp": {
-    "mtime": 1792521237.0318174,
-    "seen": 1792521246.0464509,
-    "ast_hash": "ada222b7116c8f51505df087ee62a8e9",
+    "mtime": 1792523294.3219721,
+    "seen": 1792523381.181961,
+    "ast_hash": "f571f007246f19a9fad606749524b789",
     "semantic_hash": ""
   },
   "tools/gen_cie_lut.py": {
@@ -162,9 +162,9 @@
     "semantic_hash": ""
   },
   "include/core/FloorThermostat.h": {
-    "mtime": 1792521237.030556,
-    "seen": 1792521246.0464137,
-    "ast_hash": "e265041108a8fe983656d28aea8fa0de",
+    "mtime": 1792523320.1936955,
+    "seen": 1792523381.1819348,
+    "ast_hash": "ae8360d72c7ee483c7807e9498041f61",
     "semantic_hash": ""
   },
   "include/hal/ArduinoRelay.h": {
@@ -174,9 +174,9 @@
     "semantic_hash": ""
   },
   "src/core/FloorThermostat.cpp": {
-    "mtime": 1792521237.0312645,
-    "seen": 1792521246.0464277,
-    "ast_hash": "569ed8d366603264a984488b4ee93bc1",
+    "mtime": 1792523320.1935039,
+    "seen": 1792523381.1819506,
+    "ast_hash": "88a2a64f5681a8b70e5168e9028e65ec",
     "semantic_hash": ""
   },
   "src/hal/ArduinoRelay.cpp": {
@@ -186,9 +186,9 @@
     "semantic_hash": ""
   },
   "test/test_floor/test_floor.cpp": {
-    "mtime": 1792521237.0318174,
-    "seen": 1792521246.046449,
-    "ast_hash": "b8c8a98ce7c5f24aaea3540f7eae41e4",
+    "mtime": 1792523294.3217452,
+    "seen": 1792523381.1819599,
+    "ast_hash": "24ea3e6ae87e441107672ea1d87213ce",
     "semantic_hash": ""
   },
   "include/NetworkManager.h": {
@@ -219,6 +219,12 @@
     "mtime": 1792521237.0318174,
     "seen": 1792521246.0464568,
     "ast_hash": "b0cfccf39e1faded080c849ed2d6e149",
+    "semantic_hash": ""
+  },
+  "include/core/SensorLimits.h": {
+    "mtime": 1792523320.1621807,
+    "seen": 1792523381.181938,
+    "ast_hash": "61d52f49e23827b7d5246b1df33d34e1",
     "semantic_hash": ""
   }
 }

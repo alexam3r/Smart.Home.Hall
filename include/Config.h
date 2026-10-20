@@ -29,7 +29,7 @@ constexpr float FLOOR_DEFAULT_TARGET_C = 30.0f;
 
 constexpr uint32_t PIR_WARMUP_MS = 10000;
 constexpr uint32_t FLOOR_INTERVAL_MS = 30000;
-constexpr uint32_t FLOOR_CONVERSION_MS = 750;
+constexpr uint32_t FLOOR_CONVERSION_MS = 850;  // 750 по даташиту + запас
 constexpr uint32_t AIR_INTERVAL_MS = 15000;
 constexpr uint32_t TELEMETRY_INTERVAL_MS = 10000;
 

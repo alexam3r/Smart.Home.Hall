@@ -214,6 +214,35 @@ void test_invalid_samples_are_ignored() {
     TEST_ASSERT_FALSE(relay.on);
 }
 
+void test_temperature_below_five_is_ignored() {
+    FakeRelay relay;
+    FakeObserver observer;
+    FloorThermostat floor(relay, observer, kCfg, 0);
+
+    floor.setMaster(true, 0);
+    floor.onSample(4.9f, 0);
+    TEST_ASSERT_FALSE(floor.heat());
+    TEST_ASSERT_FALSE(relay.on);
+}
+
+void test_sensor_invalid_turns_heat_off_but_keeps_master() {
+    FakeRelay relay;
+    FakeObserver observer;
+    FloorThermostat floor(relay, observer, kCfg, 0);
+
+    floor.setMaster(true, 0);
+    floor.onSample(28.0f, 0);
+    TEST_ASSERT_TRUE(floor.heat());
+
+    floor.onSensorInvalid(100);
+    TEST_ASSERT_FALSE(floor.heat());
+    TEST_ASSERT_TRUE(floor.master());
+    TEST_ASSERT_FALSE(relay.on);
+
+    floor.onSample(28.0f, 200);
+    TEST_ASSERT_TRUE(floor.heat());
+}
+
 void test_master_on_uses_cached_sample() {
     FakeRelay relay;
     FakeObserver observer;
@@ -241,6 +270,8 @@ int main(int, char **) {
     RUN_TEST(test_stale_sample_turns_heat_off_but_master_stays_on);
     RUN_TEST(test_master_off_turns_heat_off);
     RUN_TEST(test_invalid_samples_are_ignored);
+    RUN_TEST(test_temperature_below_five_is_ignored);
+    RUN_TEST(test_sensor_invalid_turns_heat_off_but_keeps_master);
     RUN_TEST(test_master_on_uses_cached_sample);
     return UNITY_END();
 }

@@ -78,7 +78,7 @@ void test_poll_intervals() {
 }
 
 void test_invalid_floor_values_are_rejected() {
-    for (float bad : {85.0f, 0.0f, -127.0f, NAN}) {
+    for (float bad : {85.0f, 0.0f, 4.9f, -127.0f, NAN}) {
         FakeBus bus;
         SensorManager sm(bus, 0, kCfg);
         bus.floorTemp = bad;
@@ -88,7 +88,7 @@ void test_invalid_floor_values_are_rejected() {
     }
 }
 
-void test_invalid_floor_reading_keeps_last_valid() {
+void test_invalid_floor_reading_invalidates_sample() {
     FakeBus bus;
     SensorManager sm(bus, 0, kCfg);
 
@@ -101,9 +101,15 @@ void test_invalid_floor_reading_keeps_last_valid() {
     sm.update(30000);
     sm.update(30750);
 
-    TEST_ASSERT_TRUE(sm.snapshot().floorValid);
+    TEST_ASSERT_FALSE(sm.snapshot().floorValid);
     TEST_ASSERT_FLOAT_WITHIN(0.01f, 27.0f, sm.snapshot().floorTempC);
     TEST_ASSERT_EQUAL_UINT32(750, sm.snapshot().floorSampleMs);
+
+    bus.floorTemp = 26.5f;
+    sm.update(60000);
+    sm.update(60750);
+    TEST_ASSERT_TRUE(sm.snapshot().floorValid);
+    TEST_ASSERT_FLOAT_WITHIN(0.01f, 26.5f, sm.snapshot().floorTempC);
 }
 
 void test_air_failure_invalidates_and_recovers() {
@@ -171,7 +177,7 @@ int main(int, char **) {
     RUN_TEST(test_floor_reads_after_conversion_time);
     RUN_TEST(test_poll_intervals);
     RUN_TEST(test_invalid_floor_values_are_rejected);
-    RUN_TEST(test_invalid_floor_reading_keeps_last_valid);
+    RUN_TEST(test_invalid_floor_reading_invalidates_sample);
     RUN_TEST(test_air_failure_invalidates_and_recovers);
     RUN_TEST(test_pir_warmup_and_edge_latching);
     RUN_TEST(test_pir_high_at_boot_does_not_trigger_after_warmup);

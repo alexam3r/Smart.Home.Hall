@@ -149,7 +149,10 @@ void publishTelemetry(uint32_t now, const SensorSnapshot& snapshot) {
     data.floorMotionMode = floorThermostat.motionMode();
     data.floorHeat = floorThermostat.heat();
 
-    data.floorValid = snapshot.floorValid;
+    const bool floorFresh =
+        snapshot.floorValid &&
+        static_cast<uint32_t>(now - snapshot.floorSampleMs) < cfg::FLOOR_STALE_TIMEOUT_MS;
+    data.floorValid = floorFresh;
     data.floorTempC = snapshot.floorTempC;
     data.airValid = snapshot.airValid;
     data.airTempC = snapshot.airTempC;
@@ -184,13 +187,18 @@ void setup() {
 }
 
 void loop() {
-    const uint32_t now = millis();
+    uint32_t now = millis();
 
     network.update(now);
+    // В MQTT-callback время могло уйти вперёд — обновляем now,
+    // чтобы не передать контроллерам устаревшую метку.
+    now = millis();
     sensors.update(now);
     const SensorSnapshot& snapshot = sensors.snapshot();
 
-    if (snapshot.floorValid && snapshot.floorSampleMs != lastFloorSampleMs) {
+    if (!snapshot.floorValid) {
+        floorThermostat.onSensorInvalid(now);
+    } else if (snapshot.floorSampleMs != lastFloorSampleMs) {
         lastFloorSampleMs = snapshot.floorSampleMs;
         floorThermostat.onSample(snapshot.floorTempC, snapshot.floorSampleMs);
     }
@@ -216,8 +224,9 @@ void loop() {
 
     if (now - lastSensorLogMs >= 5000) {
         lastSensorLogMs = now;
-        Serial.printf("[SENS] floor=%.1fC valid=%d air=%.1fC/%.1f%% valid=%d pir=%d\n",
-                      snapshot.floorTempC, static_cast<int>(snapshot.floorValid),
+        Serial.printf("[SENS] floor=%.1fC raw=%.1fC valid=%d air=%.1fC/%.1f%% valid=%d pir=%d\n",
+                      snapshot.floorTempC, snapshot.floorLastReadC,
+                      static_cast<int>(snapshot.floorValid),
                       snapshot.airTempC, snapshot.airHumPct, static_cast<int>(snapshot.airValid),
                       static_cast<int>(snapshot.pirRaw));
     }

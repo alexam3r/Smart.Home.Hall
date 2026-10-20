@@ -184,6 +184,27 @@ void test_late_update_catches_up_without_overshoot() {
     TEST_ASSERT_TRUE(light.isOn());
 }
 
+void test_stale_loop_time_does_not_skip_reverse_fade() {
+    FakePwm pwm;
+    FakeObserver observer;
+    LightController light(pwm, observer, kCfg, 0);
+
+    light.setPower(true, 0);
+    light.update(1000);
+    TEST_ASSERT_EQUAL_UINT16(188, pwm.duty);
+
+    // Команда пришла из MQTT-callback с более поздним millis(),
+    // а loop() ещё передаёт старый now.
+    light.setPower(false, 1100);
+    light.update(1000);
+    TEST_ASSERT_FALSE(light.isOn());
+    TEST_ASSERT_TRUE(light.isFading());
+    TEST_ASSERT_EQUAL_UINT16(188, pwm.duty);
+
+    light.update(2100);
+    TEST_ASSERT_EQUAL_UINT16(45, pwm.duty);
+}
+
 void test_motion_turns_light_on_only_in_motion_mode() {
     FakePwm pwm;
     FakeObserver observer;
@@ -211,6 +232,7 @@ int main(int, char **) {
     RUN_TEST(test_safety_timeout_without_motion_mode);
     RUN_TEST(test_any_light_command_resets_timer);
     RUN_TEST(test_late_update_catches_up_without_overshoot);
+    RUN_TEST(test_stale_loop_time_does_not_skip_reverse_fade);
     RUN_TEST(test_motion_turns_light_on_only_in_motion_mode);
     return UNITY_END();
 }

@@ -56,7 +56,8 @@ void LightController::onMotion(uint32_t now) {
 }
 
 void LightController::update(uint32_t now) {
-    if (on_ && static_cast<uint32_t>(now - lastActivityMs_) >= timeoutMs()) {
+    const int32_t idle = static_cast<int32_t>(now - lastActivityMs_);
+    if (on_ && idle >= static_cast<int32_t>(timeoutMs())) {
         applyAutoOff(now);
     }
 
@@ -64,7 +65,13 @@ void LightController::update(uint32_t now) {
         return;
     }
 
-    const uint32_t elapsed = static_cast<uint32_t>(now - fadeStartMs_);
+    const int32_t elapsed = static_cast<int32_t>(now - fadeStartMs_);
+    if (elapsed <= 0) {
+        // Команда пришла из callback с более поздним millis(), чем now в loop().
+        // Нельзя трактовать это как «фейд завершён».
+        return;
+    }
+
     const float progress = config_.fadeMs == 0
                                ? 1.0f
                                : static_cast<float>(elapsed) / static_cast<float>(config_.fadeMs);
@@ -79,14 +86,15 @@ void LightController::update(uint32_t now) {
 
     current_ = start_ + (target_ - start_) * progress;
 
-    if (static_cast<uint32_t>(now - lastStepMs_) >= config_.stepMs) {
+    if (static_cast<int32_t>(now - lastStepMs_) >= static_cast<int32_t>(config_.stepMs)) {
         pwm_.writeDuty(dutyFor(current_));
         lastStepMs_ = now;
     }
 }
 
 uint32_t LightController::secondsSinceActivity(uint32_t now) const {
-    return static_cast<uint32_t>(now - lastActivityMs_) / 1000u;
+    const int32_t elapsed = static_cast<int32_t>(now - lastActivityMs_);
+    return elapsed > 0 ? static_cast<uint32_t>(elapsed) / 1000u : 0;
 }
 
 void LightController::startFade(float target, uint32_t now) {

@@ -32,6 +32,7 @@ public:
     void setTarget(float targetC, uint32_t now);
     void onMotion(uint32_t now);
     void onSample(float floorTempC, uint32_t now);
+    void onSensorInvalid(uint32_t now);
     void update(uint32_t now);
 
     bool master() const { return master_; }
