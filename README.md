@@ -14,6 +14,76 @@
 - **Живучесть.** Автопереподключение Wi-Fi/MQTT (попытка раз в 5 секунд) и `ESP.restart()` после 5 минут без связи.
 - **Безопасный старт.** После подачи питания всё выключено, состояния публикуются в MQTT, PIR игнорируется первые 10 секунд.
 
+## Архитектура
+
+```mermaid
+flowchart TD
+    subgraph ext["Внешний контур"]
+        Ha["Home Assistant / Node-RED"]
+        Broker["MQTT broker<br/>gateway:1883"]
+    end
+
+    subgraph net["Сеть"]
+        Manager["NetworkManager<br/>Wi-Fi · MQTT · watchdog"]
+    end
+
+    subgraph core["Ядро · native-тесты"]
+        Light["LightController<br/>фейдер · реверс · таймеры"]
+        Floor["FloorThermostat<br/>гистерезис · таймеры · fail-safe"]
+        Sensors["SensorManager<br/>асинхронный опрос · PIR"]
+        Telemetry["TelemetryFormatter<br/>JSON · порядок ключей"]
+        Cie["Cie1931<br/>LUT в PROGMEM"]
+    end
+
+    subgraph hal["HAL"]
+        Pwm["ArduinoPwm<br/>4 кГц · 10 бит"]
+        Relay["ArduinoRelay<br/>SSR"]
+        HwSensors["ArduinoSensors<br/>DS18B20 · AM2320 · PIR"]
+    end
+
+    subgraph hw["Железо"]
+        Led["LED-лента 24 В"]
+        Heater["Тёплый пол · SSR-40 DA"]
+    end
+
+    Secrets["Secrets.h<br/>Wi-Fi / MQTT"]
+    Config["Config.h<br/>пины · тайминги"]
+    Main["main.cpp<br/>сборка модулей"]
+
+    Secrets --> Manager
+    Config -.-> Main
+    Config -.-> Pwm
+    Main -.-> Manager
+    Main -.-> Light
+    Main -.-> Floor
+    Main -.-> Sensors
+    Main -.-> Telemetry
+
+    Manager <-->|"команды / статусы"| Broker
+    Broker <--> Ha
+
+    Manager -->|"light/*"| Light
+    Light -->|"light_state · brightness_state"| Manager
+    Manager -->|"floor/*"| Floor
+    Floor -->|"floor_state · floor_heat_state"| Manager
+
+    Sensors -->|"PIR"| Light
+    Sensors -->|"PIR · T пола"| Floor
+    Sensors -->|"снимок"| Telemetry
+    Light -->|"состояние"| Telemetry
+    Floor -->|"состояние"| Telemetry
+    Telemetry -->|"home/hall/state"| Manager
+
+    Light --> Cie
+    Light --> Pwm
+    Pwm --> Led
+    Floor --> Relay
+    Relay --> Heater
+    HwSensors --> Sensors
+```
+
+Сплошные стрелки — вызовы и события, пунктир — конфигурация и сборка. `main.cpp` — composition root: он создаёт модули и связывает их, а чистое ядро не зависит от Arduino и проверяется через `pio test -e native`.
+
 ## Железо
 
 | Компонент | Подключение | Примечание |
