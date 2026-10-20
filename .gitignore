@@ -12,3 +12,9 @@ include/Secrets.h
 
 # Служебные данные DeepSeek Harness
 .dsh/
+
+# graphify (граф коммитится, кэш и html — нет)
+graphify-out/cache/
+graphify-out/graph.html
+graphify-out/.graphify*
+.graphify_*

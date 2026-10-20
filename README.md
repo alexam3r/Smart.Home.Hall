@@ -101,7 +101,8 @@
 | Пол: таймаут при движении | 1 ч |
 | Пол: защитный таймаут | 12 ч |
 | Гистерезис пола | ±0.5 °C |
-| Опрос датчиков | 15 с |
+| Опрос AM2320 | 15 с |
+| Опрос DS18B20 | 30 с, асинхронно (без блокировки `loop()`) |
 | Телеметрия | 10 с |
 | Watchdog связи | 5 мин → `ESP.restart()` |
 
@@ -152,6 +153,7 @@ Wi-Fi и MQTT-учётные данные в код не коммитятся. �
 │   └── main.cpp       # легаси-монолит — эталон поведения
 ├── src/               # новая модульная прошивка (в работе)
 ├── include/           # заголовки, Secrets.h.example
+├── graphify-out/      # архитектурный граф (graph.json, GRAPH_REPORT.md)
 ├── _Ф1_верх.gbr       # Gerber верхнего слоя платы
 └── .vscode/           # настройки PlatformIO IDE
 ```
@@ -177,3 +179,4 @@ Wi-Fi и MQTT-учётные данные в код не коммитятся. �
 - [`CLAUDE.md`](CLAUDE.md) — входная точка для Claude Code.
 - [`docs/main.cpp`](docs/main.cpp) — текущая рабочая прошивка (легаси).
 - [`docs/freeze-analysis.md`](docs/freeze-analysis.md) — разбор причин зависаний анимации на 1–2 с.
+- [`graphify-out/GRAPH_REPORT.md`](graphify-out/GRAPH_REPORT.md) — архитектурный граф проекта (graphify).
