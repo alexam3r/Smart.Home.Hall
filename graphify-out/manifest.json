@@ -12,9 +12,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1792518705.0715015,
-    "seen": 1792518728.1591985,
-    "ast_hash": "cc64314558299e6752a2ff6e0af524b2",
+    "mtime": 1792519298.995065,
+    "seen": 1792519302.3197777,
+    "ast_hash": "85fdc64b1d97501638524203095c5534",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -30,9 +30,9 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1792518705.0712957,
-    "seen": 1792518728.159201,
-    "ast_hash": "1f77fd87acc1bc320dc8252ab43fb021",
+    "mtime": 1792519298.9948702,
+    "seen": 1792519302.3197806,
+    "ast_hash": "e48dd2459625a49c162f6f3797785b9e",
     "semantic_hash": ""
   },
   "docs/freeze-analysis.md": {
@@ -60,9 +60,9 @@
     "semantic_hash": ""
   },
   "src/main.cpp": {
-    "mtime": 1792518683.4188583,
-    "seen": 1792518728.1591957,
-    "ast_hash": "07952379926e240cb34f7cd7030bd26f",
+    "mtime": 1792519272.068411,
+    "seen": 1792519302.3197727,
+    "ast_hash": "45828d9f6fb7303fd226e69a8951014e",
     "semantic_hash": ""
   },
   "test/test_smoke/test_smoke.cpp": {
@@ -99,6 +99,66 @@
     "mtime": 1792518664.1170604,
     "seen": 1792518728.1591964,
     "ast_hash": "0e63b1afaac47cc6bb2f06190c7796f8",
+    "semantic_hash": ""
+  },
+  "include/core/Cie1931.h": {
+    "mtime": 1792519216.1422417,
+    "seen": 1792519302.3197615,
+    "ast_hash": "295748c5c22c4a368037792d7fd49109",
+    "semantic_hash": ""
+  },
+  "include/core/Cie1931Table.h": {
+    "mtime": 1792519216.1372416,
+    "seen": 1792519302.3197627,
+    "ast_hash": "bf2133a6075fc59863f8d8e4fb2849ad",
+    "semantic_hash": ""
+  },
+  "include/core/LightController.h": {
+    "mtime": 1792519248.5419192,
+    "seen": 1792519302.3197637,
+    "ast_hash": "7a87409881e39c5c1441a822d4e6d726",
+    "semantic_hash": ""
+  },
+  "include/hal/ArduinoPwm.h": {
+    "mtime": 1792519272.062411,
+    "seen": 1792519302.3197663,
+    "ast_hash": "dd9a2b28816591c8eb1fe37a47c9b885",
+    "semantic_hash": ""
+  },
+  "src/core/Cie1931.cpp": {
+    "mtime": 1792519216.1452417,
+    "seen": 1792519302.3197684,
+    "ast_hash": "9997a9d835bcc7d05c47f1d9eea541f0",
+    "semantic_hash": ""
+  },
+  "src/core/LightController.cpp": {
+    "mtime": 1792519289.3377905,
+    "seen": 1792519302.3197694,
+    "ast_hash": "3ce7caf81b8359d0fb6e94dbaa30d720",
+    "semantic_hash": ""
+  },
+  "src/hal/ArduinoPwm.cpp": {
+    "mtime": 1792519272.065411,
+    "seen": 1792519302.3197708,
+    "ast_hash": "8c0be6aaefc508ead11036b5297f98f6",
+    "semantic_hash": ""
+  },
+  "test/test_cie/test_cie.cpp": {
+    "mtime": 1792519210.707128,
+    "seen": 1792519302.3197734,
+    "ast_hash": "207148d60e6daacbc29a988f4071cef9",
+    "semantic_hash": ""
+  },
+  "test/test_light/test_light.cpp": {
+    "mtime": 1792519252.3592596,
+    "seen": 1792519302.3197742,
+    "ast_hash": "ada222b7116c8f51505df087ee62a8e9",
+    "semantic_hash": ""
+  },
+  "tools/gen_cie_lut.py": {
+    "mtime": 1792519216.1262414,
+    "seen": 1792519302.3197768,
+    "ast_hash": "0141e3a34ee32fcba4fd86fe26ead56b",
     "semantic_hash": ""
   }
 }
