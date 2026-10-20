@@ -27,12 +27,8 @@ float ArduinoSensors::readFloorTempC() {
 }
 
 bool ArduinoSensors::readAir(float& tempC, float& humPct) {
-    // Быстрый ACK-чек: если датчика нет, не уходим в 300-мс повторы библиотеки.
-    Wire.beginTransmission(0x5C);
-    if (Wire.endTransmission() != 0) {
-        return false;
-    }
-
+    // readRegister32 сам выполняет пробуждение AM2320; отдельный ACK-чек
+    // до пробуждения ненадёжен (спящий датчик может не ответить).
     const uint32_t data = am2320_.readRegister32(0x00);
     if (data == 0xFFFFFFFFu) {
         return false;

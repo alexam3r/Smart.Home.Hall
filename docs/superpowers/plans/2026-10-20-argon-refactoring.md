@@ -306,7 +306,7 @@ git commit -m "feat(sensors): неблокирующий автомат опро
 - `begin()`: `Wire.begin(PIN_SDA, PIN_SCL)`, `Wire.setClock(100000)`, `am2320.begin()`, `sensors.begin()`, `sensors.setWaitForConversion(false)`.
 - `requestFloorConversion()`: `sensors.requestTemperatures()` (теперь возвращается сразу).
 - `readFloorTempC()`: `sensors.getTempCByIndex(0)`.
-- `readAir()`: быстрый ACK-чек `Wire.beginTransmission(0x5C)` + `Wire.endTransmission()`, затем **один** `am2320.readRegister32(0x00)`; декодировать температуру (знаковый бит 15) и влажность (`data >> 16`) как в библиотеке; вернуть `false` при `0xFFFFFFFF`.
+- `readAir()`: **один** `am2320.readRegister32(0x00)` (сам выполняет пробуждение AM2320 — отдельный ACK-чек до пробуждения ненадёжен); декодировать температуру (знаковый бит 15) и влажность (`data >> 16`) как в библиотеке; вернуть `false` при `0xFFFFFFFF`.
 - `readPir()`: `digitalRead(PIN_PIR) == HIGH`.
 
 Остаточный риск: если после ACK чтение всё же уйдёт в повторы библиотеки, возможна пауза до ~300 мс. При появлении `null` в телеметрии — отдельная задача на свой неблокирующий драйвер AM2320 (вне этого плана).
