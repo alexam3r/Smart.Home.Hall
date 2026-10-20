@@ -12,9 +12,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1792518439.6753085,
-    "seen": 1792518451.6240504,
-    "ast_hash": "6355ad3151268af0bac8b11cae07597e",
+    "mtime": 1792518705.0715015,
+    "seen": 1792518728.1591985,
+    "ast_hash": "cc64314558299e6752a2ff6e0af524b2",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -30,21 +30,21 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1792518439.675534,
-    "seen": 1792518451.6240537,
-    "ast_hash": "8fb685cb0bcc2fde9f00ac0d4e73732d",
+    "mtime": 1792518705.0712957,
+    "seen": 1792518728.159201,
+    "ast_hash": "1f77fd87acc1bc320dc8252ab43fb021",
     "semantic_hash": ""
   },
   "docs/freeze-analysis.md": {
-    "mtime": 1792517164.2743175,
-    "seen": 1792517167.7114227,
-    "ast_hash": "1109793269427423f283eb60ec5cfeac",
+    "mtime": 1792518722.548931,
+    "seen": 1792518728.1592019,
+    "ast_hash": "3732e432021f5e4796ed83df2fe75755",
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-10-20-argon-refactoring.md": {
-    "mtime": 1792517441.072436,
-    "seen": 1792517455.4816604,
-    "ast_hash": "eaa3d4e04032c6bb8b59d909f10909b8",
+    "mtime": 1792518722.5492077,
+    "seen": 1792518728.1592026,
+    "ast_hash": "13e043d078d95611ac894c36c52b5d3b",
     "semantic_hash": ""
   },
   "include/Config.h": {
@@ -60,15 +60,45 @@
     "semantic_hash": ""
   },
   "src/main.cpp": {
-    "mtime": 1792518400.6437345,
-    "seen": 1792518451.6240482,
-    "ast_hash": "5a640fc6d7baf18aee4a8be9ccd060de",
+    "mtime": 1792518683.4188583,
+    "seen": 1792518728.1591957,
+    "ast_hash": "07952379926e240cb34f7cd7030bd26f",
     "semantic_hash": ""
   },
   "test/test_smoke/test_smoke.cpp": {
     "mtime": 1792518379.8322837,
     "seen": 1792518451.6240492,
     "ast_hash": "69df4c362e3a081d2fd6bc3bd31d8fac",
+    "semantic_hash": ""
+  },
+  "include/core/SensorManager.h": {
+    "mtime": 1792518656.297271,
+    "seen": 1792518728.1591916,
+    "ast_hash": "ca63a019976344185eae1c7ae2be810c",
+    "semantic_hash": ""
+  },
+  "include/hal/ArduinoSensors.h": {
+    "mtime": 1792518683.4128582,
+    "seen": 1792518728.1591928,
+    "ast_hash": "3c37e5ed9402a29ce93f48cc58ab6014",
+    "semantic_hash": ""
+  },
+  "src/core/SensorManager.cpp": {
+    "mtime": 1792518614.5763674,
+    "seen": 1792518728.1591938,
+    "ast_hash": "c08e1db045b53cdd3749b571ceb57439",
+    "semantic_hash": ""
+  },
+  "src/hal/ArduinoSensors.cpp": {
+    "mtime": 1792518713.748935,
+    "seen": 1792518728.1591947,
+    "ast_hash": "58e98444b22e27388bacfb4e8b182344",
+    "semantic_hash": ""
+  },
+  "test/test_sensors/test_sensors.cpp": {
+    "mtime": 1792518664.1170604,
+    "seen": 1792518728.1591964,
+    "ast_hash": "0e63b1afaac47cc6bb2f06190c7796f8",
     "semantic_hash": ""
   }
 }

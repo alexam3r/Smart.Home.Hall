@@ -32,9 +32,10 @@
 ## 3. Текущее состояние
 
 - `docs/main.cpp` — легаси-монолит (407 строк), эталон поведения. Лежит **вне** `src/`, PlatformIO его не собирает.
-- `src/main.cpp` — каркас: Serial, ШИМ 4 кГц/10 бит, безопасный старт. Модули появятся в блоках 2–5.
-- `include/` — `Config.h`, `MqttTopics.h`, `Secrets.h.example`; `Secrets.h` создаётся локально и в git не попадает.
-- `test/` — native-тесты чистой логики (`pio test -e native`).
+- `src/main.cpp` — сборка модулей; сейчас подключён `SensorManager` и логирование снимка датчиков.
+- `src/core/` — чистая логика без Arduino (`SensorManager`); `src/hal/` — аппаратные адаптеры (`ArduinoSensors`).
+- `include/` — `Config.h`, `MqttTopics.h`, `core/`, `hal/`, `Secrets.h.example`; `Secrets.h` создаётся локально и в git не попадает.
+- `test/` — native-тесты (`smoke`, `sensors`, 10 тестов).
 - `platformio.ini` — окружения `d1_mini` (по умолчанию) и `native`; зависимости зафиксированы.
 - Ветка `refactor/argon` (от `main`), remote `origin` → `git@github.com:alexam3r/Smart.Home.Hall.git`.
 - CI нет. Проверка = `pio run` + `pio test -e native` + ручная проверка на железе.
