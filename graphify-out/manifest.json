@@ -12,15 +12,15 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1792517174.9512546,
-    "seen": 1792517455.481647,
-    "ast_hash": "6bde96b18cc43bb221d76205f11886ad",
+    "mtime": 1792518439.6753085,
+    "seen": 1792518451.6240504,
+    "ast_hash": "6355ad3151268af0bac8b11cae07597e",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1792517152.8589666,
-    "seen": 1792517167.7114162,
-    "ast_hash": "9dec4c4d90a27ee8655979c4bb3281c5",
+    "mtime": 1792518439.6754415,
+    "seen": 1792518451.6240516,
+    "ast_hash": "ca6bc7ef3f1e87670e92b027751e37c6",
     "semantic_hash": ""
   },
   "PRD.md": {
@@ -30,9 +30,9 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1792517152.83445,
-    "seen": 1792517167.711421,
-    "ast_hash": "2e3bcab9f4de44527ccf25cdc650af0f",
+    "mtime": 1792518439.675534,
+    "seen": 1792518451.6240537,
+    "ast_hash": "8fb685cb0bcc2fde9f00ac0d4e73732d",
     "semantic_hash": ""
   },
   "docs/freeze-analysis.md": {
@@ -45,6 +45,30 @@
     "mtime": 1792517441.072436,
     "seen": 1792517455.4816604,
     "ast_hash": "eaa3d4e04032c6bb8b59d909f10909b8",
+    "semantic_hash": ""
+  },
+  "include/Config.h": {
+    "mtime": 1792518390.5485158,
+    "seen": 1792518451.6240458,
+    "ast_hash": "f0ca523ffdf772859ff53c0cc6a9c484",
+    "semantic_hash": ""
+  },
+  "include/MqttTopics.h": {
+    "mtime": 1792518390.550516,
+    "seen": 1792518451.6240473,
+    "ast_hash": "a8c5acea0be6e417390eced6ec6b4bc8",
+    "semantic_hash": ""
+  },
+  "src/main.cpp": {
+    "mtime": 1792518400.6437345,
+    "seen": 1792518451.6240482,
+    "ast_hash": "5a640fc6d7baf18aee4a8be9ccd060de",
+    "semantic_hash": ""
+  },
+  "test/test_smoke/test_smoke.cpp": {
+    "mtime": 1792518379.8322837,
+    "seen": 1792518451.6240492,
+    "ast_hash": "69df4c362e3a081d2fd6bc3bd31d8fac",
     "semantic_hash": ""
   }
 }
