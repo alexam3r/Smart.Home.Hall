@@ -1,6 +1,22 @@
 #include <Arduino.h>
 
 #include "Config.h"
+#include "hal/ArduinoSensors.h"
+
+namespace {
+
+constexpr SensorConfig kSensorConfig{
+    cfg::FLOOR_INTERVAL_MS,
+    cfg::FLOOR_CONVERSION_MS,
+    cfg::AIR_INTERVAL_MS,
+    cfg::PIR_WARMUP_MS,
+};
+
+ArduinoSensors sensorBus;
+SensorManager sensors(sensorBus, 0, kSensorConfig);
+uint32_t lastSensorLogMs = 0;
+
+}  // namespace
 
 void setup() {
     Serial.begin(115200);
@@ -16,8 +32,27 @@ void setup() {
     digitalWrite(cfg::PIN_SSR_FLOOR, LOW);
     pinMode(cfg::PIN_PIR, INPUT);
 
-    Serial.println("[SYS] Argon skeleton ready");
+    sensorBus.begin();
+    Serial.println("[SYS] Argon sensors ready");
 }
 
 void loop() {
+    const uint32_t now = millis();
+    sensors.update(now);
+
+    if (sensors.takeMotionStarted()) {
+        Serial.println("[PIR] motion started");
+    }
+    if (sensors.takeMotionStopped()) {
+        Serial.println("[PIR] motion stopped");
+    }
+
+    if (now - lastSensorLogMs >= 5000) {
+        lastSensorLogMs = now;
+        const SensorSnapshot& s = sensors.snapshot();
+        Serial.printf("[SENS] floor=%.1fC valid=%d air=%.1fC/%.1f%% valid=%d pir=%d\n",
+                      s.floorTempC, static_cast<int>(s.floorValid),
+                      s.airTempC, s.airHumPct, static_cast<int>(s.airValid),
+                      static_cast<int>(s.pirRaw));
+    }
 }
