@@ -9,6 +9,8 @@ public:
 
     // Запускает преобразование DS18B20 и сразу возвращает управление.
     virtual void requestFloorConversion() = 0;
+    // Готово ли преобразование DS18B20 (для асинхронного ожидания).
+    virtual bool isFloorConversionReady() = 0;
     // Читает результат последнего преобразования (может вернуть 85/0/-127).
     virtual float readFloorTempC() = 0;
     // Один обмен с AM2320: температура и влажность. false — ошибка шины.
@@ -59,6 +61,7 @@ private:
 
     FloorState floorState_ = FloorState::Idle;
     bool floorRequested_ = false;
+    bool floorRetry_ = false;
     uint32_t lastFloorRequestMs_ = 0;
 
     bool airInitialized_ = false;

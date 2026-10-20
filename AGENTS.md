@@ -36,7 +36,7 @@
 - `src/NetworkManager.cpp` — Wi-Fi/MQTT, команды, реконнект и watchdog.
 - `src/core/` — чистая логика без Arduino (`SensorManager`, `LightController`, `FloorThermostat`, `TelemetryFormatter`, `Cie1931`); `src/hal/` — аппаратные адаптеры (`ArduinoSensors`, `ArduinoPwm`, `ArduinoRelay`).
 - `include/` — `Config.h`, `MqttTopics.h`, `NetworkManager.h`, `core/`, `hal/`, `Secrets.h.example`. `Secrets.h` создаётся локально и в git не попадает; если его нет, `main.cpp` собирается с заглушками из `.example` (с предупреждением), но устройство не подключится к сети.
-- `test/` — native-тесты (`smoke`, `sensors`, `cie`, `light`, `floor`, `telemetry`, 40 тестов).
+- `test/` — native-тесты (`smoke`, `sensors`, `cie`, `light`, `floor`, `telemetry`, 42 теста).
 - `docs/hall.yaml` — рабочий MQTT-пакет Home Assistant (датчики читают JSON `home/hall/state`).
 - `docs/hardware-test-report.md` — результаты испытаний на железе 2026-10-20.
 - `platformio.ini` — окружения `d1_mini` (по умолчанию) и `native`; зависимости зафиксированы.

@@ -18,8 +18,10 @@ public:
     float airTemp = 22.0f;
     float airHum = 40.0f;
     bool pir = false;
+    bool floorReady = true;
 
     void requestFloorConversion() override { ++floorRequests; }
+    bool isFloorConversionReady() override { return floorReady; }
     float readFloorTempC() override { return floorTemp; }
     bool readAir(float& tempC, float& humPct) override {
         ++airReads;
@@ -112,6 +114,39 @@ void test_invalid_floor_reading_invalidates_sample() {
     TEST_ASSERT_FLOAT_WITHIN(0.01f, 26.5f, sm.snapshot().floorTempC);
 }
 
+void test_floor_waits_for_conversion_ready() {
+    FakeBus bus;
+    bus.floorReady = false;
+    SensorManager sm(bus, 0, kCfg);
+
+    sm.update(0);
+    sm.update(750);
+    sm.update(800);
+    TEST_ASSERT_FALSE(sm.snapshot().floorValid);
+
+    bus.floorReady = true;
+    bus.floorTemp = 27.2f;
+    sm.update(900);
+    TEST_ASSERT_TRUE(sm.snapshot().floorValid);
+    TEST_ASSERT_FLOAT_WITHIN(0.01f, 27.2f, sm.snapshot().floorTempC);
+}
+
+void test_floor_retries_soon_after_invalid_read() {
+    FakeBus bus;
+    bus.floorTemp = 85.0f;
+    SensorManager sm(bus, 0, kCfg);
+
+    sm.update(0);
+    sm.update(850);
+    TEST_ASSERT_FALSE(sm.snapshot().floorValid);
+
+    bus.floorTemp = 27.0f;
+    sm.update(2000);
+    sm.update(2850);
+    TEST_ASSERT_TRUE(sm.snapshot().floorValid);
+    TEST_ASSERT_EQUAL_INT(2, bus.floorRequests);
+}
+
 void test_air_failure_invalidates_and_recovers() {
     FakeBus bus;
     SensorManager sm(bus, 0, kCfg);
@@ -178,6 +213,8 @@ int main(int, char **) {
     RUN_TEST(test_poll_intervals);
     RUN_TEST(test_invalid_floor_values_are_rejected);
     RUN_TEST(test_invalid_floor_reading_invalidates_sample);
+    RUN_TEST(test_floor_waits_for_conversion_ready);
+    RUN_TEST(test_floor_retries_soon_after_invalid_read);
     RUN_TEST(test_air_failure_invalidates_and_recovers);
     RUN_TEST(test_pir_warmup_and_edge_latching);
     RUN_TEST(test_pir_high_at_boot_does_not_trigger_after_warmup);

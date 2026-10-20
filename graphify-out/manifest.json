@@ -12,15 +12,15 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1792525974.7396548,
-    "seen": 1792526012.2596183,
-    "ast_hash": "dec98d0fe5216c00fbdd53e03e3688d5",
+    "mtime": 1792526790.2301238,
+    "seen": 1792526805.7854288,
+    "ast_hash": "74fbba27f1d51bf3ed94aa450f62f608",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1792525974.7397945,
-    "seen": 1792526012.259622,
-    "ast_hash": "792bd87293c1e1d152ad706053984152",
+    "mtime": 1792526790.2303085,
+    "seen": 1792526805.78543,
+    "ast_hash": "3f2d80d735883cd15875ef4cdddb7cdd",
     "semantic_hash": ""
   },
   "PRD.md": {
@@ -30,9 +30,9 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1792525974.7392855,
-    "seen": 1792526012.2596295,
-    "ast_hash": "e15069179af5655659f6bf5fbd04cbb0",
+    "mtime": 1792526790.2296188,
+    "seen": 1792526805.7854333,
+    "ast_hash": "4a6faa803bbdc12f92eb342fcdb39fc3",
     "semantic_hash": ""
   },
   "docs/freeze-analysis.md": {
@@ -72,33 +72,33 @@
     "semantic_hash": ""
   },
   "include/core/SensorManager.h": {
-    "mtime": 1792523353.4337478,
-    "seen": 1792523381.1819403,
-    "ast_hash": "9d9747537df260ef9f29fc3d0a076833",
+    "mtime": 1792526747.5889869,
+    "seen": 1792526805.7853951,
+    "ast_hash": "eda0efb0a7812fc538bf44a9f78d813b",
     "semantic_hash": ""
   },
   "include/hal/ArduinoSensors.h": {
-    "mtime": 1792521237.0309072,
-    "seen": 1792521246.046423,
-    "ast_hash": "3c37e5ed9402a29ce93f48cc58ab6014",
+    "mtime": 1792526747.589158,
+    "seen": 1792526805.7854018,
+    "ast_hash": "f8274ffc6f43699fba8f954689f8ec6e",
     "semantic_hash": ""
   },
   "src/core/SensorManager.cpp": {
-    "mtime": 1792523353.4339347,
-    "seen": 1792523381.1819525,
-    "ast_hash": "0d5ad93029bc17e2d981a07adf17242b",
+    "mtime": 1792526767.3748484,
+    "seen": 1792526805.7854097,
+    "ast_hash": "18b73585fc1f545a074c3f47d848c88c",
     "semantic_hash": ""
   },
   "src/hal/ArduinoSensors.cpp": {
-    "mtime": 1792521237.0315893,
-    "seen": 1792521246.046436,
-    "ast_hash": "58e98444b22e27388bacfb4e8b182344",
+    "mtime": 1792526747.589287,
+    "seen": 1792526805.7854156,
+    "ast_hash": "85668c3d6b12a6ef5d6ce475eef8546b",
     "semantic_hash": ""
   },
   "test/test_sensors/test_sensors.cpp": {
-    "mtime": 1792523294.321403,
-    "seen": 1792523381.181962,
-    "ast_hash": "f66cffa0dd267a8bcb556e51272310b0",
+    "mtime": 1792526778.4432929,
+    "seen": 1792526805.785423,
+    "ast_hash": "ed56c8ca1c61074812543a126b82b112",
     "semantic_hash": ""
   },
   "include/core/Cie1931.h": {
@@ -234,9 +234,9 @@
     "semantic_hash": ""
   },
   "docs/hardware-test-report.md": {
-    "mtime": 1792525974.7399023,
-    "seen": 1792526012.2596393,
-    "ast_hash": "e9e965cc9db538bc8ef423f4202ae6a8",
+    "mtime": 1792526790.2308352,
+    "seen": 1792526805.7854419,
+    "ast_hash": "2d9992ecb7f37a0d6c10db9216f3c17a",
     "semantic_hash": ""
   }
 }

@@ -13,6 +13,7 @@ public:
     void begin();
 
     void requestFloorConversion() override;
+    bool isFloorConversionReady() override;
     float readFloorTempC() override;
     bool readAir(float& tempC, float& humPct) override;
     bool readPir() override;

@@ -16,10 +16,15 @@ void ArduinoSensors::begin() {
     floorSensors_.begin();
     // Преобразование запускается отдельно, ожидание — в SensorManager.
     floorSensors_.setWaitForConversion(false);
+    Serial.printf("[SENS] DS18B20 devices=%u\n", floorSensors_.getDeviceCount());
 }
 
 void ArduinoSensors::requestFloorConversion() {
     floorSensors_.requestTemperatures();
+}
+
+bool ArduinoSensors::isFloorConversionReady() {
+    return floorSensors_.isConversionComplete();
 }
 
 float ArduinoSensors::readFloorTempC() {
