@@ -1,7 +1,7 @@
 # Graph Report - Smart.Home.Hall  (2026-10-20)
 
 ## Corpus Check
-- 39 files · ~18,312 words
+- 39 files · ~18,280 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 3 file(s) not represented in the graph (top: (none) 1, .gbr 1, .ini 1)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d02db27f`
+- Built from commit: `704db99b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -72,7 +72,7 @@ Nodes (22): 1. Краткий вывод, 2. Что именно блокиру�
 
 ### Community 2 - "Smart Home Hall — умный коридор на ESP8266"
 Cohesion: 0.06
-Nodes (25): Claude Code, Правила, С чего начать после `git clone`, Текущий статус, Замечания, Испытания на железе, После испытаний, Проверено (+17 more)
+Nodes (25): Claude Code, Правила, С чего начать после `git clone`, Текущий статус, Замечания, Испытания на железе, Повторные испытания после правок, Проверено (+17 more)
 
 ### Community 3 - "SensorManager"
 Cohesion: 0.08

@@ -12,15 +12,15 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1792526790.2301238,
-    "seen": 1792526805.7854288,
-    "ast_hash": "74fbba27f1d51bf3ed94aa450f62f608",
+    "mtime": 1792527889.0279956,
+    "seen": 1792527901.3647249,
+    "ast_hash": "8f8dff0cc17ffaf5ef2befa056625617",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1792526790.2303085,
-    "seen": 1792526805.78543,
-    "ast_hash": "3f2d80d735883cd15875ef4cdddb7cdd",
+    "mtime": 1792527889.0281513,
+    "seen": 1792527901.3647287,
+    "ast_hash": "4761b4575a69bfdc49cb7088237d3d6c",
     "semantic_hash": ""
   },
   "PRD.md": {
@@ -30,9 +30,9 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1792526790.2296188,
-    "seen": 1792526805.7854333,
-    "ast_hash": "4a6faa803bbdc12f92eb342fcdb39fc3",
+    "mtime": 1792527889.026757,
+    "seen": 1792527901.3647332,
+    "ast_hash": "426964317c264937fdeeadbb7c001716",
     "semantic_hash": ""
   },
   "docs/freeze-analysis.md": {
@@ -234,9 +234,9 @@
     "semantic_hash": ""
   },
   "docs/hardware-test-report.md": {
-    "mtime": 1792526790.2308352,
-    "seen": 1792526805.7854419,
-    "ast_hash": "2d9992ecb7f37a0d6c10db9216f3c17a",
+    "mtime": 1792527889.028289,
+    "seen": 1792527901.3647406,
+    "ast_hash": "94c57c35ce7cebcd514463f8c87229a9",
     "semantic_hash": ""
   }
 }
