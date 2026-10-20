@@ -38,7 +38,7 @@
 - `include/` — `Config.h`, `MqttTopics.h`, `NetworkManager.h`, `core/`, `hal/`, `Secrets.h.example`; `Secrets.h` создаётся локально и в git не попадает.
 - `test/` — native-тесты (`smoke`, `sensors`, `cie`, `light`, `floor`, `telemetry`, 37 тестов).
 - `platformio.ini` — окружения `d1_mini` (по умолчанию) и `native`; зависимости зафиксированы.
-- Ветка `refactor/argon` (от `main`), remote `origin` → `git@github.com:alexam3r/Smart.Home.Hall.git`.
+- Ветка `main` (рефакторинг слит из `refactor/argon`), remote `origin` → `git@github.com:alexam3r/Smart.Home.Hall.git`.
 - CI нет. Проверка = `pio run` + `pio test -e native` + ручная проверка на железе.
 
 Перед началом работы всегда смотри `git status` и `git log --oneline -5`: рабочее дерево может содержать незакоммиченные изменения.

@@ -12,14 +12,14 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1792520954.043819,
-    "seen": 1792520969.5420594,
-    "ast_hash": "ef96e547ecff55d44c0575d8bacf837a",
+    "mtime": 1792521245.4051104,
+    "seen": 1792521246.0464604,
+    "ast_hash": "abff8890cf74efd947c0bea8672ed604",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1792518439.6754415,
-    "seen": 1792518451.6240516,
+    "mtime": 1792521237.027693,
+    "seen": 1792521246.0464616,
     "ast_hash": "ca6bc7ef3f1e87670e92b027751e37c6",
     "semantic_hash": ""
   },
@@ -30,194 +30,194 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1792520944.6737592,
-    "seen": 1792520969.5420623,
+    "mtime": 1792521237.0279157,
+    "seen": 1792521246.0464659,
     "ast_hash": "5c1a09afda249fadd98b1a8d4db6ecbb",
     "semantic_hash": ""
   },
   "docs/freeze-analysis.md": {
-    "mtime": 1792518722.548931,
-    "seen": 1792518728.1592019,
+    "mtime": 1792521237.0279157,
+    "seen": 1792521246.046467,
     "ast_hash": "3732e432021f5e4796ed83df2fe75755",
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-10-20-argon-refactoring.md": {
-    "mtime": 1792518722.5492077,
-    "seen": 1792518728.1592026,
+    "mtime": 1792521237.0279157,
+    "seen": 1792521246.046469,
     "ast_hash": "13e043d078d95611ac894c36c52b5d3b",
     "semantic_hash": ""
   },
   "include/Config.h": {
-    "mtime": 1792518390.5485158,
-    "seen": 1792518451.6240458,
+    "mtime": 1792521237.028907,
+    "seen": 1792521246.0464017,
     "ast_hash": "f0ca523ffdf772859ff53c0cc6a9c484",
     "semantic_hash": ""
   },
   "include/MqttTopics.h": {
-    "mtime": 1792518390.550516,
-    "seen": 1792518451.6240473,
+    "mtime": 1792521237.030306,
+    "seen": 1792521246.0464048,
     "ast_hash": "a8c5acea0be6e417390eced6ec6b4bc8",
     "semantic_hash": ""
   },
   "src/main.cpp": {
-    "mtime": 1792520871.8320317,
-    "seen": 1792520969.5420527,
+    "mtime": 1792521237.0315893,
+    "seen": 1792521246.0464447,
     "ast_hash": "0e05e705e514b30b2fcd26ad16c96379",
     "semantic_hash": ""
   },
   "test/test_smoke/test_smoke.cpp": {
-    "mtime": 1792518379.8322837,
-    "seen": 1792518451.6240492,
+    "mtime": 1792521237.0318174,
+    "seen": 1792521246.0464551,
     "ast_hash": "69df4c362e3a081d2fd6bc3bd31d8fac",
     "semantic_hash": ""
   },
   "include/core/SensorManager.h": {
-    "mtime": 1792518656.297271,
-    "seen": 1792518728.1591916,
+    "mtime": 1792521237.030556,
+    "seen": 1792521246.046417,
     "ast_hash": "ca63a019976344185eae1c7ae2be810c",
     "semantic_hash": ""
   },
   "include/hal/ArduinoSensors.h": {
-    "mtime": 1792518683.4128582,
-    "seen": 1792518728.1591928,
+    "mtime": 1792521237.0309072,
+    "seen": 1792521246.046423,
     "ast_hash": "3c37e5ed9402a29ce93f48cc58ab6014",
     "semantic_hash": ""
   },
   "src/core/SensorManager.cpp": {
-    "mtime": 1792518614.5763674,
-    "seen": 1792518728.1591938,
+    "mtime": 1792521237.0312645,
+    "seen": 1792521246.04643,
     "ast_hash": "c08e1db045b53cdd3749b571ceb57439",
     "semantic_hash": ""
   },
   "src/hal/ArduinoSensors.cpp": {
-    "mtime": 1792518713.748935,
-    "seen": 1792518728.1591947,
+    "mtime": 1792521237.0315893,
+    "seen": 1792521246.046436,
     "ast_hash": "58e98444b22e27388bacfb4e8b182344",
     "semantic_hash": ""
   },
   "test/test_sensors/test_sensors.cpp": {
-    "mtime": 1792518664.1170604,
-    "seen": 1792518728.1591964,
+    "mtime": 1792521237.0318174,
+    "seen": 1792521246.0464528,
     "ast_hash": "0e63b1afaac47cc6bb2f06190c7796f8",
     "semantic_hash": ""
   },
   "include/core/Cie1931.h": {
-    "mtime": 1792519216.1422417,
-    "seen": 1792519302.3197615,
+    "mtime": 1792521237.0304933,
+    "seen": 1792521246.0464091,
     "ast_hash": "295748c5c22c4a368037792d7fd49109",
     "semantic_hash": ""
   },
   "include/core/Cie1931Table.h": {
-    "mtime": 1792519216.1372416,
-    "seen": 1792519302.3197627,
+    "mtime": 1792521237.030556,
+    "seen": 1792521246.0464113,
     "ast_hash": "bf2133a6075fc59863f8d8e4fb2849ad",
     "semantic_hash": ""
   },
   "include/core/LightController.h": {
-    "mtime": 1792519248.5419192,
-    "seen": 1792519302.3197637,
+    "mtime": 1792521237.030556,
+    "seen": 1792521246.046415,
     "ast_hash": "7a87409881e39c5c1441a822d4e6d726",
     "semantic_hash": ""
   },
   "include/hal/ArduinoPwm.h": {
-    "mtime": 1792519272.062411,
-    "seen": 1792519302.3197663,
+    "mtime": 1792521237.030556,
+    "seen": 1792521246.0464196,
     "ast_hash": "dd9a2b28816591c8eb1fe37a47c9b885",
     "semantic_hash": ""
   },
   "src/core/Cie1931.cpp": {
-    "mtime": 1792519216.1452417,
-    "seen": 1792519302.3197684,
+    "mtime": 1792521237.031205,
+    "seen": 1792521246.046426,
     "ast_hash": "9997a9d835bcc7d05c47f1d9eea541f0",
     "semantic_hash": ""
   },
   "src/core/LightController.cpp": {
-    "mtime": 1792519289.3377905,
-    "seen": 1792519302.3197694,
+    "mtime": 1792521237.0312645,
+    "seen": 1792521246.046429,
     "ast_hash": "3ce7caf81b8359d0fb6e94dbaa30d720",
     "semantic_hash": ""
   },
   "src/hal/ArduinoPwm.cpp": {
-    "mtime": 1792519272.065411,
-    "seen": 1792519302.3197708,
+    "mtime": 1792521237.0312645,
+    "seen": 1792521246.0464327,
     "ast_hash": "8c0be6aaefc508ead11036b5297f98f6",
     "semantic_hash": ""
   },
   "test/test_cie/test_cie.cpp": {
-    "mtime": 1792519210.707128,
-    "seen": 1792519302.3197734,
+    "mtime": 1792521237.0318174,
+    "seen": 1792521246.0464468,
     "ast_hash": "207148d60e6daacbc29a988f4071cef9",
     "semantic_hash": ""
   },
   "test/test_light/test_light.cpp": {
-    "mtime": 1792519252.3592596,
-    "seen": 1792519302.3197742,
+    "mtime": 1792521237.0318174,
+    "seen": 1792521246.0464509,
     "ast_hash": "ada222b7116c8f51505df087ee62a8e9",
     "semantic_hash": ""
   },
   "tools/gen_cie_lut.py": {
-    "mtime": 1792519216.1262414,
-    "seen": 1792519302.3197768,
+    "mtime": 1792521237.0318174,
+    "seen": 1792521246.046459,
     "ast_hash": "0141e3a34ee32fcba4fd86fe26ead56b",
     "semantic_hash": ""
   },
   "include/core/FloorThermostat.h": {
-    "mtime": 1792519388.5228462,
-    "seen": 1792519436.6507401,
+    "mtime": 1792521237.030556,
+    "seen": 1792521246.0464137,
     "ast_hash": "e265041108a8fe983656d28aea8fa0de",
     "semantic_hash": ""
   },
   "include/hal/ArduinoRelay.h": {
-    "mtime": 1792519409.8512921,
-    "seen": 1792519436.650745,
+    "mtime": 1792521237.0309072,
+    "seen": 1792521246.0464213,
     "ast_hash": "5557923df7f8deecdd6dc2e1d97694eb",
     "semantic_hash": ""
   },
   "src/core/FloorThermostat.cpp": {
-    "mtime": 1792519388.5258462,
-    "seen": 1792519436.6507473,
+    "mtime": 1792521237.0312645,
+    "seen": 1792521246.0464277,
     "ast_hash": "569ed8d366603264a984488b4ee93bc1",
     "semantic_hash": ""
   },
   "src/hal/ArduinoRelay.cpp": {
-    "mtime": 1792519409.855292,
-    "seen": 1792519436.650751,
+    "mtime": 1792521237.0315893,
+    "seen": 1792521246.0464346,
     "ast_hash": "c045e4006d47cffcf4ce788ab67878be",
     "semantic_hash": ""
   },
   "test/test_floor/test_floor.cpp": {
-    "mtime": 1792519392.4489305,
-    "seen": 1792519436.6507552,
+    "mtime": 1792521237.0318174,
+    "seen": 1792521246.046449,
     "ast_hash": "b8c8a98ce7c5f24aaea3540f7eae41e4",
     "semantic_hash": ""
   },
   "include/NetworkManager.h": {
-    "mtime": 1792520884.9467173,
-    "seen": 1792520969.542031,
+    "mtime": 1792521237.0303555,
+    "seen": 1792521246.046407,
     "ast_hash": "153a70e171026e34f1093da528ed7cff",
     "semantic_hash": ""
   },
   "include/core/TelemetryFormatter.h": {
-    "mtime": 1792520815.9948528,
-    "seen": 1792520969.5420396,
+    "mtime": 1792521237.030556,
+    "seen": 1792521246.0464184,
     "ast_hash": "d5c84024a448902ed5e654c563f0905c",
     "semantic_hash": ""
   },
   "src/NetworkManager.cpp": {
-    "mtime": 1792520884.9469278,
-    "seen": 1792520969.5420442,
+    "mtime": 1792521237.0309072,
+    "seen": 1792521246.0464246,
     "ast_hash": "e7d7fbb6c752cd4ee1a87d785a1e8b2b",
     "semantic_hash": ""
   },
   "src/core/TelemetryFormatter.cpp": {
-    "mtime": 1792520824.103355,
-    "seen": 1792520969.5420485,
+    "mtime": 1792521237.0312645,
+    "seen": 1792521246.0464315,
     "ast_hash": "e37861f262e5c43c4b1238f265669fb6",
     "semantic_hash": ""
   },
   "test/test_telemetry/test_telemetry.cpp": {
-    "mtime": 1792520809.1077073,
-    "seen": 1792520969.5420578,
+    "mtime": 1792521237.0318174,
+    "seen": 1792521246.0464568,
     "ast_hash": "b0cfccf39e1faded080c849ed2d6e149",
     "semantic_hash": ""
   }
