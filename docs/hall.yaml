@@ -102,6 +102,7 @@ mqtt:
 
       # --- ЦЕЛЕВАЯ ТЕМПЕРАТУРА (Регулятор) ---
       # Куда отправляем команду (когда крутим ручку)
+      # Канонический targetTemp; legacy target_temp тоже поддерживается прошивкой.
       temperature_command_topic: "home/hall/floor/targetTemp"
       # temperature_state_topic НЕ задаём: прошивка уставку не публикует,
       # а с заданным state-топиком HA держит уставку None (initial игнорируется)

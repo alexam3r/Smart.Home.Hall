@@ -9,6 +9,8 @@ constexpr char LIGHT_MOTION_CMD[] = "home/hall/light/moveDetection";
 constexpr char FLOOR_CMD[] = "home/hall/floor/floor";
 constexpr char FLOOR_MOTION_CMD[] = "home/hall/floor/moveDetection";
 constexpr char FLOOR_TARGET[] = "home/hall/floor/targetTemp";
+// Legacy-алиас: старые HA-конфиги публиковали target_temp (snake_case).
+constexpr char FLOOR_TARGET_LEGACY[] = "home/hall/floor/target_temp";
 
 // Состояния.
 constexpr char LIGHT_STATE[] = "home/hall/light/light_state";

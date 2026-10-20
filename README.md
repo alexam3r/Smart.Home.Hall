@@ -2,7 +2,7 @@
 
 Прошивка контроллера «умного коридора»: LED-подсветка с плавным розжигом, тёплый пол с термостатом, датчики движения, температуры и влажности, управление и телеметрия по MQTT для Home Assistant и Node-RED.
 
-> **Статус: рефакторинг Argon завершён и испытан на железе 2026-10-20.** Все модули собраны, MQTT и телеметрия подключены; 40 native-тестов зелёные, проверка на устройстве прошла без замечаний. Проект заморожен до следующих правок; снимок состояния — тег `argon-2026-10-20`.
+> **Статус: рефакторинг Argon завершён и испытан на железе 2026-10-20.** Все модули собраны, MQTT и телеметрия подключены; 40 native-тестов зелёные, проверка на устройстве прошла без замечаний. После испытаний добавлен legacy-алиас `target_temp` — его ещё нужно проверить на железе. Проект заморожен до следующих правок; снимок базовой версии — тег `argon-2026-10-20`.
 
 ## Возможности
 
@@ -114,7 +114,8 @@ flowchart TD
 | `home/hall/light/moveDetection` | `ON` / `OFF` | Автосвет по движению |
 | `home/hall/floor/floor` | `ON` / `OFF` | Мастер-выключатель пола |
 | `home/hall/floor/moveDetection` | `ON` / `OFF` | Автопол по движению |
-| `home/hall/floor/targetTemp` | float, °C | Уставка пола (camelCase!) |
+| `home/hall/floor/targetTemp` | float, °C | Уставка пола, канонический топик |
+| `home/hall/floor/target_temp` | float, °C | Legacy-алиас; прошивка принимает и синхронизирует оба |
 
 Любая команда света сбрасывает таймер света, любая команда пола — таймер пола; срабатывание PIR сбрасывает оба таймера.
 
@@ -129,7 +130,7 @@ flowchart TD
 | `home/hall/floor/floor_state` | `ON` / `OFF` | да | Мастер-состояние пола |
 | `home/hall/floor/floor_heat_state` | `ON` / `OFF` | да | Только при реальном переключении реле SSR |
 | `home/hall/floor/moveDetection_state` | `ON` / `OFF` | да | При смене режима |
-| `home/hall/floor/targetTemp` | float, °C | да | При первом подключении — `30.0` |
+| `home/hall/floor/targetTemp` | float, °C | да | При первом подключении — `30.0`; дублируется в `target_temp` |
 | `home/hall/state` | JSON | нет | Каждые 10 секунд |
 
 При первом подключении к MQTT контроллер один раз публикует все `*_state` = `OFF`, `brightness_state` = `100` и `targetTemp` = `30.0`.
@@ -178,7 +179,7 @@ flowchart TD
 
 ## Home Assistant
 
-Готовый пакет MQTT — [`docs/hall.yaml`](docs/hall.yaml). Датчики температуры/влажности и `climate` читают JSON-телеметрию `home/hall/state` (`air_temp`, `air_hum`, `floor_temp`); отдельных топиков температур прошивка не публикует. Команда уставки пола — `home/hall/floor/targetTemp` (camelCase).
+Готовый пакет MQTT — [`docs/hall.yaml`](docs/hall.yaml). Датчики температуры/влажности и `climate` читают JSON-телеметрию `home/hall/state` (`air_temp`, `air_hum`, `floor_temp`); отдельных топиков температур прошивка не публикует. Команда уставки пола — `home/hall/floor/targetTemp` (camelCase); legacy-топик `home/hall/floor/target_temp` тоже принимается.
 
 Пакет подключается как обычный HA package (`homeassistant/packages/hall.yaml`) и требует перезагрузки Home Assistant.
 

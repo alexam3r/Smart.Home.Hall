@@ -12,15 +12,15 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1792524426.7720816,
-    "seen": 1792524438.215541,
-    "ast_hash": "7be84a286a383cd3d33d424e91339c46",
+    "mtime": 1792525250.7064323,
+    "seen": 1792525256.5518637,
+    "ast_hash": "dbe7d8bc6280d9784ff3a45052506a09",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1792524426.7722535,
-    "seen": 1792524438.2155454,
-    "ast_hash": "18217a1afb7b015633c040919ddf003d",
+    "mtime": 1792525250.706578,
+    "seen": 1792525256.5518656,
+    "ast_hash": "f388ea515fe395a955b756fc009fc71e",
     "semantic_hash": ""
   },
   "PRD.md": {
@@ -30,9 +30,9 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1792524426.7717125,
-    "seen": 1792524438.2155519,
-    "ast_hash": "9a9b436f368ba1088696a30c62b3e09e",
+    "mtime": 1792525250.7061102,
+    "seen": 1792525256.5518694,
+    "ast_hash": "b859a680758c7461d0e506eba56195f4",
     "semantic_hash": ""
   },
   "docs/freeze-analysis.md": {
@@ -54,9 +54,9 @@
     "semantic_hash": ""
   },
   "include/MqttTopics.h": {
-    "mtime": 1792521237.030306,
-    "seen": 1792521246.0464048,
-    "ast_hash": "a8c5acea0be6e417390eced6ec6b4bc8",
+    "mtime": 1792525228.5292697,
+    "seen": 1792525256.5517995,
+    "ast_hash": "7aec18b7f3994a26c81ed25df7c63753",
     "semantic_hash": ""
   },
   "src/main.cpp": {
@@ -66,9 +66,9 @@
     "semantic_hash": ""
   },
   "test/test_smoke/test_smoke.cpp": {
-    "mtime": 1792521237.0318174,
-    "seen": 1792521246.0464551,
-    "ast_hash": "69df4c362e3a081d2fd6bc3bd31d8fac",
+    "mtime": 1792525222.6121812,
+    "seen": 1792525256.5518575,
+    "ast_hash": "26b47c0323baccfbac6ce5c8c81dd000",
     "semantic_hash": ""
   },
   "include/core/SensorManager.h": {
@@ -204,9 +204,9 @@
     "semantic_hash": ""
   },
   "src/NetworkManager.cpp": {
-    "mtime": 1792521237.0309072,
-    "seen": 1792521246.0464246,
-    "ast_hash": "e7d7fbb6c752cd4ee1a87d785a1e8b2b",
+    "mtime": 1792525228.529558,
+    "seen": 1792525256.5518274,
+    "ast_hash": "8e6649420c6b88a3078cd5f184311416",
     "semantic_hash": ""
   },
   "src/core/TelemetryFormatter.cpp": {
@@ -228,15 +228,15 @@
     "semantic_hash": ""
   },
   "docs/hall.yaml": {
-    "mtime": 1792524390.382697,
-    "seen": 1792524438.2155578,
-    "ast_hash": "13cb2f7349a65f730dd4d5d0bf0eed32",
+    "mtime": 1792525250.7066963,
+    "seen": 1792525256.5518723,
+    "ast_hash": "954f588bf2efdee5a9e7edd98a264ba0",
     "semantic_hash": ""
   },
   "docs/hardware-test-report.md": {
-    "mtime": 1792524404.7060502,
-    "seen": 1792524438.2155604,
-    "ast_hash": "911ae07b525eddbdba71e93b20bf5ce8",
+    "mtime": 1792525250.7067971,
+    "seen": 1792525256.5518734,
+    "ast_hash": "2dcc000ccc3e82671c8d8524bb150197",
     "semantic_hash": ""
   }
 }
