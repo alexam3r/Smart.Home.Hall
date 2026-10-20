@@ -1,6 +1,8 @@
 #include <Arduino.h>
 
 #include "Config.h"
+#include "core/LightController.h"
+#include "hal/ArduinoPwm.h"
 #include "hal/ArduinoSensors.h"
 
 namespace {
@@ -12,6 +14,29 @@ constexpr SensorConfig kSensorConfig{
     cfg::PIR_WARMUP_MS,
 };
 
+constexpr LightConfig kLightConfig{
+    cfg::LIGHT_FADE_MS,
+    cfg::LIGHT_STEP_MS,
+    cfg::LIGHT_PIR_TIMEOUT_MS,
+    cfg::LIGHT_SAFETY_TIMEOUT_MS,
+    cfg::LIGHT_DEFAULT_BRIGHTNESS,
+    cfg::PWM_RANGE,
+};
+
+class SerialLightObserver : public ILightObserver {
+public:
+    void onLightStateChanged(bool on) override {
+        Serial.printf("[LIGHT] state -> %s\n", on ? "ON" : "OFF");
+    }
+    void onBrightnessSettled(uint8_t percent) override {
+        Serial.printf("[LIGHT] brightness settled -> %u%%\n", percent);
+    }
+};
+
+ArduinoPwm pwm;
+SerialLightObserver lightObserver;
+LightController light(pwm, lightObserver, kLightConfig, 0);
+
 ArduinoSensors sensorBus;
 SensorManager sensors(sensorBus, 0, kSensorConfig);
 uint32_t lastSensorLogMs = 0;
@@ -21,11 +46,7 @@ uint32_t lastSensorLogMs = 0;
 void setup() {
     Serial.begin(115200);
 
-    // ШИМ ленты: 4 кГц, 10 бит, прямая логика (0 — выключено).
-    analogWriteFreq(cfg::PWM_FREQ_HZ);
-    analogWriteRange(cfg::PWM_RANGE);
-    pinMode(cfg::PIN_PWM_LED, OUTPUT);
-    analogWrite(cfg::PIN_PWM_LED, 0);
+    pwm.begin();
 
     // Безопасный старт: реле пола выключено, PIR на вход.
     pinMode(cfg::PIN_SSR_FLOOR, OUTPUT);
@@ -33,12 +54,13 @@ void setup() {
     pinMode(cfg::PIN_PIR, INPUT);
 
     sensorBus.begin();
-    Serial.println("[SYS] Argon sensors ready");
+    Serial.println("[SYS] Argon sensors + light ready");
 }
 
 void loop() {
     const uint32_t now = millis();
     sensors.update(now);
+    light.update(now);
 
     if (sensors.takeMotionStarted()) {
         Serial.println("[PIR] motion started");
