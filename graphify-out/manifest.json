@@ -12,9 +12,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1792519436.1487877,
-    "seen": 1792519436.6507595,
-    "ast_hash": "c58f0e077849d8a2eeb443bfca1f7910",
+    "mtime": 1792520954.043819,
+    "seen": 1792520969.5420594,
+    "ast_hash": "ef96e547ecff55d44c0575d8bacf837a",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -30,9 +30,9 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1792519436.1485887,
-    "seen": 1792519436.6507623,
-    "ast_hash": "8b26ac82ecc4f4e897b7ded2a02ea2fb",
+    "mtime": 1792520944.6737592,
+    "seen": 1792520969.5420623,
+    "ast_hash": "5c1a09afda249fadd98b1a8d4db6ecbb",
     "semantic_hash": ""
   },
   "docs/freeze-analysis.md": {
@@ -60,9 +60,9 @@
     "semantic_hash": ""
   },
   "src/main.cpp": {
-    "mtime": 1792519419.6768343,
-    "seen": 1792519436.6507533,
-    "ast_hash": "74bc3aa8ce770fc94549811406a62d04",
+    "mtime": 1792520871.8320317,
+    "seen": 1792520969.5420527,
+    "ast_hash": "0e05e705e514b30b2fcd26ad16c96379",
     "semantic_hash": ""
   },
   "test/test_smoke/test_smoke.cpp": {
@@ -189,6 +189,36 @@
     "mtime": 1792519392.4489305,
     "seen": 1792519436.6507552,
     "ast_hash": "b8c8a98ce7c5f24aaea3540f7eae41e4",
+    "semantic_hash": ""
+  },
+  "include/NetworkManager.h": {
+    "mtime": 1792520884.9467173,
+    "seen": 1792520969.542031,
+    "ast_hash": "153a70e171026e34f1093da528ed7cff",
+    "semantic_hash": ""
+  },
+  "include/core/TelemetryFormatter.h": {
+    "mtime": 1792520815.9948528,
+    "seen": 1792520969.5420396,
+    "ast_hash": "d5c84024a448902ed5e654c563f0905c",
+    "semantic_hash": ""
+  },
+  "src/NetworkManager.cpp": {
+    "mtime": 1792520884.9469278,
+    "seen": 1792520969.5420442,
+    "ast_hash": "e7d7fbb6c752cd4ee1a87d785a1e8b2b",
+    "semantic_hash": ""
+  },
+  "src/core/TelemetryFormatter.cpp": {
+    "mtime": 1792520824.103355,
+    "seen": 1792520969.5420485,
+    "ast_hash": "e37861f262e5c43c4b1238f265669fb6",
+    "semantic_hash": ""
+  },
+  "test/test_telemetry/test_telemetry.cpp": {
+    "mtime": 1792520809.1077073,
+    "seen": 1792520969.5420578,
+    "ast_hash": "b0cfccf39e1faded080c849ed2d6e149",
     "semantic_hash": ""
   }
 }

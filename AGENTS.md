@@ -32,10 +32,11 @@
 ## 3. Текущее состояние
 
 - `docs/main.cpp` — легаси-монолит (407 строк), эталон поведения. Лежит **вне** `src/`, PlatformIO его не собирает.
-- `src/main.cpp` — сборка модулей; сейчас подключены `SensorManager`, `LightController` и `FloorThermostat`.
-- `src/core/` — чистая логика без Arduino (`SensorManager`, `LightController`, `FloorThermostat`, `Cie1931`); `src/hal/` — аппаратные адаптеры (`ArduinoSensors`, `ArduinoPwm`, `ArduinoRelay`).
-- `include/` — `Config.h`, `MqttTopics.h`, `core/`, `hal/`, `Secrets.h.example`; `Secrets.h` создаётся локально и в git не попадает.
-- `test/` — native-тесты (`smoke`, `sensors`, `cie`, `light`, `floor`, 35 тестов).
+- `src/main.cpp` — сборка модулей и `loop()`; подключены датчики, свет, пол, сеть и телеметрия.
+- `src/NetworkManager.cpp` — Wi-Fi/MQTT, команды, реконнект и watchdog.
+- `src/core/` — чистая логика без Arduino (`SensorManager`, `LightController`, `FloorThermostat`, `TelemetryFormatter`, `Cie1931`); `src/hal/` — аппаратные адаптеры (`ArduinoSensors`, `ArduinoPwm`, `ArduinoRelay`).
+- `include/` — `Config.h`, `MqttTopics.h`, `NetworkManager.h`, `core/`, `hal/`, `Secrets.h.example`; `Secrets.h` создаётся локально и в git не попадает.
+- `test/` — native-тесты (`smoke`, `sensors`, `cie`, `light`, `floor`, `telemetry`, 37 тестов).
 - `platformio.ini` — окружения `d1_mini` (по умолчанию) и `native`; зависимости зафиксированы.
 - Ветка `refactor/argon` (от `main`), remote `origin` → `git@github.com:alexam3r/Smart.Home.Hall.git`.
 - CI нет. Проверка = `pio run` + `pio test -e native` + ручная проверка на железе.

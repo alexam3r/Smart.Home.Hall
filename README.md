@@ -2,7 +2,7 @@
 
 Прошивка контроллера «умного коридора»: LED-подсветка с плавным розжигом, тёплый пол с термостатом, датчики движения, температуры и влажности, управление и телеметрия по MQTT для Home Assistant и Node-RED.
 
-> **Статус: рефакторинг Argon, блок 4 из 5 завершён.** Датчики опрашиваются неблокирующе, свет управляется времязависимым фейдером, тёплый пол — термостатом с гистерезисом (`FloorThermostat` + `ArduinoRelay`), чистая логика тестируется на хосте (`pio test -e native`). Сеть и MQTT — блок 5 по [плану](docs/superpowers/plans/2026-10-20-argon-refactoring.md). Аппаратная часть и MQTT-контракт не меняются.
+> **Статус: рефакторинг Argon завершён (код).** Все модули собраны, MQTT и телеметрия подключены; 37 native-тестов зелёные. Прошивка ещё не проверялась на реальном устройстве — перед эксплуатацией пройдите чек-лист из [плана](docs/superpowers/plans/2026-10-20-argon-refactoring.md), блок 5.
 
 ## Возможности
 
@@ -194,7 +194,7 @@ pio device monitor       # Serial 115200
 
 Полный цикл с монитором: `pio run -t upload -t monitor`.
 
-> Сейчас в прошивке: каркас, безопасный старт, датчики, свет и тёплый пол. Сеть и MQTT — блок 5; легаси-файл остаётся эталоном поведения и в сборке не участвует.
+> Прошивка собрана полностью: датчики, свет, тёплый пол, MQTT и телеметрия. Легаси-файл остаётся эталоном поведения и в сборке не участвует; перед эксплуатацией нужна проверка на железе.
 
 ### Тесты
 
@@ -228,10 +228,11 @@ Wi-Fi и MQTT-учётные данные в код не коммитятся. �
 │   └── main.cpp       # легаси-монолит — эталон поведения
 ├── src/
 │   ├── main.cpp       # сборка модулей и loop
-│   ├── core/          # SensorManager, LightController, FloorThermostat
+│   ├── NetworkManager.cpp
+│   ├── core/          # SensorManager, LightController, FloorThermostat, TelemetryFormatter
 │   └── hal/           # ArduinoSensors, ArduinoPwm, ArduinoRelay
-├── include/           # Config.h, MqttTopics.h, core/, hal/, Secrets.h.example
-├── test/              # native-тесты (smoke, sensors)
+├── include/           # Config.h, MqttTopics.h, NetworkManager.h, core/, hal/, Secrets.h.example
+├── test/              # native-тесты (smoke, sensors, cie, light, floor, telemetry)
 ├── graphify-out/      # архитектурный граф (graph.json, GRAPH_REPORT.md)
 ├── _Ф1_верх.gbr       # Gerber верхнего слоя платы
 └── .vscode/           # настройки PlatformIO IDE
@@ -247,7 +248,7 @@ Wi-Fi и MQTT-учётные данные в код не коммитятся. �
 | 2 | Датчики и устранение блокировок | ✅ |
 | 3 | Свет: `LightController`, таблица CIE1931 в `PROGMEM` | ✅ |
 | 4 | Тёплый пол: `FloorThermostat` | ✅ |
-| 5 | Сеть, MQTT и телеметрия | — |
+| 5 | Сеть, MQTT и телеметрия | ✅ |
 
 Порядок работы и критерии готовности — в [`AGENTS.md`](AGENTS.md), §9 и §12. Полные требования — в [`PRD.md`](PRD.md).
 
