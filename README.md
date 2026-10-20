@@ -179,4 +179,5 @@ Wi-Fi и MQTT-учётные данные в код не коммитятся. �
 - [`CLAUDE.md`](CLAUDE.md) — входная точка для Claude Code.
 - [`docs/main.cpp`](docs/main.cpp) — текущая рабочая прошивка (легаси).
 - [`docs/freeze-analysis.md`](docs/freeze-analysis.md) — разбор причин зависаний анимации на 1–2 с.
+- [`docs/superpowers/plans/2026-10-20-argon-refactoring.md`](docs/superpowers/plans/2026-10-20-argon-refactoring.md) — план реализации рефакторинга.
 - [`graphify-out/GRAPH_REPORT.md`](graphify-out/GRAPH_REPORT.md) — архитектурный граф проекта (graphify).

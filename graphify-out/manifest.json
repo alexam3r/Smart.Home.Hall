@@ -12,9 +12,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1792517145.5522988,
-    "seen": 1792517167.7114136,
-    "ast_hash": "7202d7a6b3f60de388c4f29638ee655b",
+    "mtime": 1792517174.9512546,
+    "seen": 1792517455.481647,
+    "ast_hash": "6bde96b18cc43bb221d76205f11886ad",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -39,6 +39,12 @@
     "mtime": 1792517164.2743175,
     "seen": 1792517167.7114227,
     "ast_hash": "1109793269427423f283eb60ec5cfeac",
+    "semantic_hash": ""
+  },
+  "docs/superpowers/plans/2026-10-20-argon-refactoring.md": {
+    "mtime": 1792517441.072436,
+    "seen": 1792517455.4816604,
+    "ast_hash": "eaa3d4e04032c6bb8b59d909f10909b8",
     "semantic_hash": ""
   }
 }
