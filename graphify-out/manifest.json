@@ -1,7 +1,7 @@
 {
   ".vscode/extensions.json": {
-    "mtime": 1792384162.1172452,
-    "seen": 1792517064.5186634,
+    "mtime": 1792521539.7236886,
+    "seen": 1792521799.1534219,
     "ast_hash": "90f13aaa6d970e2869f11ed92ffbc61a",
     "semantic_hash": ""
   },
@@ -12,15 +12,15 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1792521245.4051104,
-    "seen": 1792521246.0464604,
-    "ast_hash": "abff8890cf74efd947c0bea8672ed604",
+    "mtime": 1792521798.224655,
+    "seen": 1792521799.1535609,
+    "ast_hash": "4ecf75d12f8503db58c08e936fea2618",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1792521237.027693,
-    "seen": 1792521246.0464616,
-    "ast_hash": "ca6bc7ef3f1e87670e92b027751e37c6",
+    "mtime": 1792521785.7790637,
+    "seen": 1792521799.153565,
+    "ast_hash": "4a971e0fe45fe9a1c76e6e9f8caf1d36",
     "semantic_hash": ""
   },
   "PRD.md": {
@@ -30,9 +30,9 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1792521237.0279157,
-    "seen": 1792521246.0464659,
-    "ast_hash": "5c1a09afda249fadd98b1a8d4db6ecbb",
+    "mtime": 1792521785.7720644,
+    "seen": 1792521799.1535707,
+    "ast_hash": "9381763000f86c61758793a6544ace1d",
     "semantic_hash": ""
   },
   "docs/freeze-analysis.md": {
@@ -60,9 +60,9 @@
     "semantic_hash": ""
   },
   "src/main.cpp": {
-    "mtime": 1792521237.0315893,
-    "seen": 1792521246.0464447,
-    "ast_hash": "0e05e705e514b30b2fcd26ad16c96379",
+    "mtime": 1792521760.4928856,
+    "seen": 1792521799.1535342,
+    "ast_hash": "d0804a16c59045752f2554607f964bc8",
     "semantic_hash": ""
   },
   "test/test_smoke/test_smoke.cpp": {

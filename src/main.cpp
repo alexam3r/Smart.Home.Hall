@@ -5,7 +5,12 @@
 #include "Config.h"
 #include "MqttTopics.h"
 #include "NetworkManager.h"
+#if __has_include("Secrets.h")
 #include "Secrets.h"
+#else
+#warning "include/Secrets.h not found - using placeholders from Secrets.h.example"
+#include "Secrets.h.example"
+#endif
 #include "core/FloorThermostat.h"
 #include "core/LightController.h"
 #include "core/TelemetryFormatter.h"

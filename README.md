@@ -206,7 +206,7 @@ pio test -e native
 
 ### Секреты
 
-Wi-Fi и MQTT-учётные данные в код не коммитятся. В репозитории есть только шаблон `include/Secrets.h.example`; локально создайте `include/Secrets.h` (файл в `.gitignore`):
+Wi-Fi и MQTT-учётные данные в код не коммитятся. В репозитории есть только шаблон `include/Secrets.h.example`; локально создайте `include/Secrets.h` (файл в `.gitignore`). Если файла нет, проект всё равно собирается с заглушками и предупреждением, но устройство не подключится к Wi-Fi/MQTT:
 
 ```cpp
 #define WIFI_SSID "your-ssid"
@@ -251,6 +251,12 @@ Wi-Fi и MQTT-учётные данные в код не коммитятся. �
 | 5 | Сеть, MQTT и телеметрия | ✅ |
 
 Порядок работы и критерии готовности — в [`AGENTS.md`](AGENTS.md), §9 и §12. Полные требования — в [`PRD.md`](PRD.md).
+
+## Для AI-агентов
+
+Если вы работаете в Claude Code — начните с [`CLAUDE.md`](CLAUDE.md): он импортирует [`AGENTS.md`](AGENTS.md). Порядок чтения: README → AGENTS → PRD → [`docs/freeze-analysis.md`](docs/freeze-analysis.md) → [план](docs/superpowers/plans/2026-10-20-argon-refactoring.md) → [`graphify-out/GRAPH_REPORT.md`](graphify-out/GRAPH_REPORT.md).
+
+Рефакторинг Argon завершён, код в `main`; 37 native-тестов. На железе прошивка ещё не проверялась, поэтому не выдавайте сборку за подтверждённое поведение. Секреты — только в локальном `include/Secrets.h`.
 
 ## Документация
 
